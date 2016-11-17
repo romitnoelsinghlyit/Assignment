@@ -69,6 +69,7 @@ namespace Login
                 lblLoginAdvice.Content = "Invalid details!";
                 tbxUserID.Text = "";
                 tbxPassword.Password = "";
+                tbxUserID.Focus();
             }
         }
 
