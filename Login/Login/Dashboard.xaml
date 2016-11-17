@@ -4,9 +4,106 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Login"
-        mc:Ignorable="d"
-        Title="Dashboard" Height="300" Width="300">
+      mc:Ignorable="d"
+        AllowsTransparency="False"
+WindowStyle="ThreeDBorderWindow"
+WindowState="Maximized"
+ShowInTaskbar="False"
+Loaded="Window_Loaded"
+WindowStartupLocation="CenterScreen"
+Title="Dashboard" Height="700" Width="1100">
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="10*" />
+            <ColumnDefinition Width="25*" />
+            <ColumnDefinition Width="65*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10*" />
+            <RowDefinition Height="90*" />
+        </Grid.RowDefinitions>
+        <DockPanel Grid.Row="0" Grid.Column="0">
+            <DockPanel Name="dockUserDetails">
+                <Grid VerticalAlignment="Center">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="50*" />
+                        <RowDefinition Height="50*" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="50*" />
+                        <ColumnDefinition Width="50*" />
+                    </Grid.ColumnDefinitions>
+                    <Label Grid.Row="0" Grid.Column="0" FontSize="14" Content="User : "></Label>
+                    <Label Name="lblCurrentUser" FontSize="14" Grid.Row="0" Grid.Column="1"></Label>
+                    <Label Grid.Row="1" Grid.Column="0" Content="Version : "></Label>
+                    <Label Grid.Row="1" Grid.Column="1" Name="lblVersion" Content="3.0"></Label>
+                </Grid>
+            </DockPanel>
+        </DockPanel>
+        <DockPanel Grid.Row="0" Grid.Column="1">
+            <DockPanel Name="dockSearch" HorizontalAlignment="Stretch">
+                <Grid Margin="0,0,0,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="40*" />
+                        <ColumnDefinition Width="60*" />
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Grid.Column="0">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBox x:Name="tbxSearchText" BorderBrush="Black" Margin="5,10,0,10" FontSize="14" HorizontalAlignment="Left" Height="20" TextWrapping="Wrap" VerticalAlignment="Top" Width="95"/>
+                        </StackPanel>
+                    </StackPanel>
+                    <StackPanel Grid.Column="1">
+                        <StackPanel Orientation="Horizontal">
+                            <Button x:Name="btnSearchText" Grid.Row="0" Grid.Column="0"  Margin="5,10,0,10" Content="Search" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="75" Click="btnSearchText_Click"/>
+                            <Button x:Name="btnResetSearch" Grid.Row="0" Grid.Column="1"  Margin="5,10,0,10" Content="Reset" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="75" Click="btnResetSearch_Click"/>
+                        </StackPanel>
+                    </StackPanel>
+                </Grid>
+            </DockPanel>
+        </DockPanel>
+        <DockPanel Grid.Row="0" Grid.Column="2">
+            <DockPanel Name="dockUserControls">
+                <Grid VerticalAlignment="Center">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="50*" />
+                        <RowDefinition Height="50*" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="18*"/>
+                        <ColumnDefinition Width="18*"/>
+                        <ColumnDefinition Width="18*"/>
+                        <ColumnDefinition Width="18*"/>
+                        <ColumnDefinition Width="18*"/>
+                        <ColumnDefinition Width="10*"/>
+                    </Grid.ColumnDefinitions>
+                    <Button Name ="btnPatients"       Grid.Row="0" Grid.Column="0" Content="Patients" FontSize="14" Margin ="5,8,5,0" FontWeight="Bold" Click="btnPatients_Click" Height="23" VerticalAlignment="Top"/>
+                    <Button Name="btnEmergency"       Grid.Row="0" Grid.Column="1" Content="Emergency" FontSize="14" Margin ="5,8,5,2" FontWeight="Bold" Click="btnEmergency_Click"/>
+                    <Button Name="btnElective"        Grid.Row="0" Grid.Column="2" Content="Elective" FontSize="14" Margin ="5,8,5,2" FontWeight="Bold" Click="btnElective_Click"/>
+                    <Button Name="btnGeneralWard"     Grid.Row="0" Grid.Column="3" Content="General Ward" FontSize="14" Margin ="5,8,5,2" FontWeight="Bold" Click="btnGeneralWard_Click"/>
+                    <Button Name="btnSurgicalWard"    Grid.Row="0" Grid.Column="4" Content="Surgical Ward" FontSize="14" Margin ="5,8,5,2" FontWeight="Bold" Click="btnSurgicalWard_Click"/>
+                    <Button Name="btnICU"             Grid.Row="0" Grid.Column="5" Content="ICU" FontSize="14" Margin ="5,8,5,2" FontWeight="Bold" Click="btnICU_Click"/>
+
+                    <Button Name="btnOrthopaedicWard" Grid.Row="1" Grid.Column="0" Content="Orthopaedic Ward" Margin ="5,8,5,2" FontWeight="Bold" Click="btnOrthopaedicWard_Click"/>
+                    <Button Name="btnPaediatricWard"  Grid.Row="1" Grid.Column="1" Content="Paediatric Ward" FontSize="14" Margin ="5,8,5,2" FontWeight="Bold" Click="btnPaediatricWard_Click"/>
+                    <Button Name="btnTestsScans"      Grid.Row="1" Grid.Column="2" Content="Tests/Scans" FontSize="14" Margin ="5,8,5,2" FontWeight="Bold" Click="btnTestsScans_Click"/>
+                    <Button Name="btnBilling"         Grid.Row="1" Grid.Column="3" Content="Billing" FontSize="14" Margin ="5,8,5,2" FontWeight="Bold" Click="btnBilling_Click"/>
+                    <Button Name="btnAdministration"  Grid.Row="1" Grid.Column="4" Content="Administration" FontSize="14" Margin ="5,8,5,2" FontWeight="Bold" Click="btnAdministration_Click"/>
+                    <Button Name="btnExit"            Grid.Row="1" Grid.Column="5" Content="Exit" FontSize="14" Margin ="5,8,5,2" FontWeight="Bold" Background="Red" Foreground="White" Click="btnExit_Click"/>
+                </Grid>
+            </DockPanel>
+        </DockPanel>
+        <DockPanel Grid.ColumnSpan="3" Grid.Column="0" Grid.Row="1" Name="dockMainPanel">
+            <Border CornerRadius="10" BorderBrush="Black" BorderThickness="3" Padding="4">
+                <Border.Effect>
+                    <DropShadowEffect Color="Gray"
+                                      Opacity=".50"
+                                      ShadowDepth="4" />
+                </Border.Effect>
+                <Frame x:Name="frmeMainFrame" NavigationUIVisibility="Hidden" Navigated="frmeMainFrame_Navigated" >
+                </Frame>
+            </Border>
+        </DockPanel>
+
     </Grid>
 </Window>
+

@@ -5,8 +5,32 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Login"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+         mc:Ignorable="d"
+       Title="MainWindow" Height="250" Width="525" WindowStartupLocation="CenterScreen" WindowStyle="None" Loaded="Window_Loaded">
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="30*" />
+            <ColumnDefinition Width="40*" />
+            <ColumnDefinition Width="30*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="25*" />
+            <RowDefinition Height="25*" />
+            <RowDefinition Height="25*" />
+            <RowDefinition Height="25*" />
+        </Grid.RowDefinitions>
+        <Label x:Name="lblHeading" Content="Please Login to access the application"  Grid.Row="0" Grid.Column="1" HorizontalAlignment="Left" Width="209" Margin="0,20,0,0"/>
+
+        <Label x:Name="lblUserID" Content="User ID"  Grid.Row="1" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="5"/>
+        <TextBox x:Name="tbxUserID" ToolTip="Enter your assigned User ID" TabIndex="0" KeyboardNavigation.TabIndex="0" Grid.Column="1" HorizontalAlignment="Left" Height="25"  Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="180" Margin="8"/>
+
+        <Label x:Name="lblPassword" Content="Password"  Grid.Row="2" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="5"/>
+        <PasswordBox x:Name="tbxPassword" ToolTip="Enter your assigned password" TabIndex="1" KeyboardNavigation.TabIndex="1" Grid.Column="1" HorizontalAlignment="Left"  Grid.Row="2" VerticalAlignment="Top" Height="25" Width="180" Margin="8"/>
+
+        <Button x:Name="btnCancel" Content="Cancel"  Grid.Row="3" Grid.Column="1" TabIndex="3" Margin="8,18,111,23" Click="btnCancel_Click"/>
+        <Button x:Name="btnLogin" Content="Login"  Grid.Row="3"  Grid.Column="1" TabIndex="2" Margin="110,18,8,23" Click="btnLogin_Click"/>
+
+        <Label x:Name="lblLoginAdvice"  HorizontalAlignment="Left" Margin="18,10,0,0" Grid.Row="3" VerticalAlignment="Top"/>
+
     </Grid>
 </Window>
