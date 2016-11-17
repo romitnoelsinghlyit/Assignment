@@ -57,19 +57,32 @@ namespace Login
             string currentUser = tbxUserID.Text.Trim();
             string currentPassword = tbxPassword.Password;
             userDetails = mtdGetUserDetails(currentUser, currentPassword);
-            if (userDetails.AccessLevel > 0)
-            {
-                this.Hide();
-                Dashboard dashBoard = new Dashboard();
-                dashBoard.user = userDetails;
-                dashBoard.ShowDialog();
+             try
+             {
+                if (userDetails.AccessLevel > 0)
+                {
+                    this.Hide();
+                    Dashboard dashBoard = new Dashboard();
+                    dashBoard.user = userDetails;
+                    dashBoard.ShowDialog();
+                }
+                else
+                {
+                    lblLoginAdvice.Content = "Invalid details!";
+                    tbxUserID.Text = "";
+                    tbxPassword.Password = "";
+                    tbxUserID.Focus();
+                }
+             }
+             catch (InvalidCastException)
+             {
+                Console.WriteLine(currentUser+" user is invalid.");
+                Console.WriteLine(currentPassword+" password is invalid.");
             }
-            else
+            catch (FormatException)
             {
-                lblLoginAdvice.Content = "Invalid details!";
-                tbxUserID.Text = "";
-                tbxPassword.Password = "";
-                tbxUserID.Focus();
+                Console.WriteLine(currentUser + " user has wrong format.");
+                Console.WriteLine(currentPassword + " password has wrong format.");
             }
         }
 
