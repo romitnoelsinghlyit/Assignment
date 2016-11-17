@@ -82,7 +82,7 @@ namespace Login
             catch (FormatException)
             {
                 Console.WriteLine(currentUser + " user has wrong format.");
-                Console.WriteLine(currentPassword + " password has wrong format.");
+                Console.WriteLine(currentPassword + " user has wrong format.");
             }
         }
 
