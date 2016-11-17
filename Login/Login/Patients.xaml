@@ -5,8 +5,160 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Login"
         mc:Ignorable="d"
-        Title="Patients" Height="300" Width="300">
+         Title="Patient Registration" Height="600" Width="800">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="7*" />
+            <RowDefinition Height="20*" />
+            <RowDefinition Height="43*" />
+            <RowDefinition Height="22*" />
+            <RowDefinition Height="8*" />
+        </Grid.RowDefinitions>
+        <DockPanel Grid.Row="0">
+            <DockPanel Name="Heading">
+                <Grid VerticalAlignment="Center">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="100*" />
+                    </Grid.RowDefinitions>
+                    <Label x:Name="lblPatientRegistrationHeading" Content="Patient Registration" HorizontalAlignment="Center"  FontWeight="Bold" FontSize="16"/>
+                </Grid>
+            </DockPanel>
+        </DockPanel>
+
+        <DockPanel Grid.Row="1">
+            <DockPanel Name="dockArrivalAndCategory" HorizontalAlignment="Stretch">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="50*"/>
+                        <RowDefinition Height="50*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="25*" />
+                        <ColumnDefinition Width="25*" />
+                        <ColumnDefinition Width="10*" />
+                        <ColumnDefinition Width="40*" />
+                    </Grid.ColumnDefinitions>
+                    <Label x:Name="lblArrivalDate" Content="Arrival Date" Grid.Row="0" Grid.Column="0" Margin ="5" HorizontalAlignment="Right" Height="25" FontWeight="Bold"/>
+                    <DatePicker x:Name="dtpArrivalDate" Grid.Row="0" Grid.Column="1" Margin ="5" HorizontalAlignment="Left"  Width="150" Height="25"/>
+                    <Label x:Name="lblAdmissionType" Content="Admission Type" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Right" Margin ="5" FontWeight="Bold"/>
+                    <StackPanel Grid.Row="1" Grid.Column="1">
+                        <StackPanel Orientation="Horizontal" Margin="12" >
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="50*"/>
+                                    <ColumnDefinition Width="50*"/>
+                                </Grid.ColumnDefinitions>
+                                <RadioButton x:Name="rdoEmergency" Content="Emergency" GroupName=" Admission Type" Grid.Column="0" VerticalAlignment="Bottom" Margin="5,0,0,5"  HorizontalAlignment="Left" IsChecked="True"/>
+                                <RadioButton x:Name="rdoElective" Content="Elective" GroupName=" Admission Type" Grid.Column="1" VerticalAlignment="Bottom" Margin="5,0,0,5" HorizontalAlignment="Left"/>
+                            </Grid>
+                        </StackPanel>
+                    </StackPanel>
+                    <Label x:Name="lblCategory" Content="Category" Grid.Row="1" Grid.Column="2" HorizontalAlignment="Right" Margin ="5" FontWeight="Bold"/>
+                    <StackPanel Grid.Row="1" Grid.Column="3">
+                        <StackPanel Orientation="Horizontal">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="50*"/>
+                                    <RowDefinition Height="50*"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="33*"/>
+                                    <ColumnDefinition Width="33*"/>
+                                    <ColumnDefinition Width="34*"/>
+                                </Grid.ColumnDefinitions>
+                                <RadioButton x:Name="rdoGeneral" Content="General" GroupName=" Category" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left" Margin="5" VerticalAlignment="Top"/>
+                                <RadioButton x:Name="rdoSurgery" Content="Surgery" GroupName=" Category" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Left" Margin="5" VerticalAlignment="Top"/>
+                                <RadioButton x:Name="rdoICU" Content="ICU"  GroupName=" Category" Grid.Row="0" Grid.Column="2"  HorizontalAlignment="Left" Margin="5" VerticalAlignment="Top"/>
+                                <RadioButton x:Name="rdoOrthopaedic" Content="Orthopaedic"  GroupName=" Category" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Left" Margin="5" VerticalAlignment="Top"/>
+                                <RadioButton x:Name="rdoPaediatric" Content="Paediatric" GroupName=" Category" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" Margin="5" VerticalAlignment="Top"/>
+                            </Grid>
+                        </StackPanel>
+                    </StackPanel>
+                </Grid>
+            </DockPanel>
+        </DockPanel>
+        <DockPanel Grid.Row="2">
+            <DockPanel Name="Details">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="20*" />
+                        <RowDefinition Height="20*" />
+                        <RowDefinition Height="20*" />
+                        <RowDefinition Height="20*" />
+                        <RowDefinition Height="20*" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="25*" />
+                        <ColumnDefinition Width="25*" />
+                        <ColumnDefinition Width="25*" />
+                        <ColumnDefinition Width="25*" />
+                    </Grid.ColumnDefinitions>
+                    <Label x:Name="lblSurname" Content="Surname" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Right" Margin ="5" FontWeight="Bold" Height="25"/>
+                    <TextBox x:Name="tbxSurname" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Left" Margin ="5" TextWrapping="Wrap" Width="150" Height="25"/>
+
+                    <Label x:Name="lblForename" Content="Forename" Grid.Row="0" Grid.Column="2" HorizontalAlignment="Right" Margin ="5" FontWeight="Bold" Height="25"/>
+                    <TextBox x:Name="tbxForename" Grid.Row="0" Grid.Column="3" HorizontalAlignment="Left" Margin ="5" TextWrapping="Wrap" Width="150" Height="25"/>
+
+                    <Label x:Name="lblDateOfBirth" Content="Date of Birth" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Right" Margin ="5" FontWeight="Bold" Height="25"/>
+                    <DatePicker x:Name="dtpDateOfBirth" HorizontalAlignment="Left"  Grid.Row="1" Grid.Column="1" Margin="5"  Width="150" Height="25"/>
+
+                    <Label x:Name="lblSex" Content="Sex" Grid.Row="1" Grid.Column="2" HorizontalAlignment="Right" Margin ="5" FontWeight="Bold" Height="25"/>
+                    <ComboBox x:Name="cmbSex" HorizontalAlignment="Left"  Grid.Row="1" Grid.Column="3" Margin="5"  Width="150" Height="25">
+                        <ComboBoxItem>Male</ComboBoxItem>
+                        <ComboBoxItem IsSelected="True">Female</ComboBoxItem>
+                        <ComboBoxItem>Transgender</ComboBoxItem>
+                    </ComboBox>
+
+                    <Label x:Name="lblPatientID" Content="Patient ID" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Right" Margin ="5" FontWeight="Bold" Height="25"/>
+                    <TextBox x:Name="tbxPatientID" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left" Margin ="5" TextWrapping="Wrap" Width="150" Height="25"/>
+
+                    <Label x:Name="lblMaritalStatus" Content="Marital Status" Grid.Row="2" Grid.Column="2" HorizontalAlignment="Right" Margin ="5" FontWeight="Bold" Height="25"/>
+                    <TextBox x:Name="tbxMaritalStatus" Grid.Row="2" Grid.Column="3" HorizontalAlignment="Left" Margin ="5" TextWrapping="Wrap" Width="150" Height="25"/>
+
+                    <Label x:Name="lblOccupation" Content="Occupation" HorizontalAlignment="Left" Margin="35,276,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                    <TextBox x:Name="tbxOccupation" HorizontalAlignment="Left" Height="23" Margin="180,276,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="144"/>
+
+                    <Label x:Name="lblReligion" Content="Religion" Grid.Row="3" Grid.Column="0" HorizontalAlignment="Right" Margin ="5" FontWeight="Bold" Height="25"/>
+                    <TextBox x:Name="tbxReligion" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Left" Margin ="5" TextWrapping="Wrap" Width="150" Height="25"/>
+
+                    <Label x:Name="lblInsurance" Content="Insurance" Grid.Row="4" Grid.Column="0" HorizontalAlignment="Right" Margin ="5" FontWeight="Bold" Height="25"/>
+                    <TextBox x:Name="tbxInsurance" Grid.Row="4" Grid.Column="1" HorizontalAlignment="Left" Margin ="5" TextWrapping="Wrap" Width="150" Height="25"/>
+                </Grid>
+            </DockPanel>
+        </DockPanel>
+        <DockPanel Grid.Row="3">
+            <DockPanel Name="Address">
+                <Grid VerticalAlignment="Center">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="25*"/>
+                        <ColumnDefinition Width="25*"/>
+                        <ColumnDefinition Width="25*"/>
+                        <ColumnDefinition Width="25*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label x:Name="lblAddress" Content="Address" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Right" Margin ="5" FontWeight="Bold" Height="25"/>
+                    <TextBox x:Name="tbxAddress" HorizontalAlignment="Left" Height="110" AcceptsReturn="True" TextWrapping="Wrap" Grid.Row="0" Grid.Column="1" Margin ="5" Width="150"/>
+
+                    <Label x:Name="lblGP" Content="GP" Grid.Row="0" Grid.Column="2" HorizontalAlignment="Right" Margin ="5" FontWeight="Bold" Height="25"/>
+                    <TextBox x:Name="tbxGP" HorizontalAlignment="Left" Height="110" AcceptsReturn="True" TextWrapping="Wrap" Grid.Row="0" Grid.Column="3" Margin ="5" Width="150"/>
+                </Grid>
+            </DockPanel>
+        </DockPanel>
+        <DockPanel Grid.Row="4">
+            <DockPanel Name="Button">
+                <Grid VerticalAlignment="Center">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="25*"/>
+                        <ColumnDefinition Width="25*"/>
+                        <ColumnDefinition Width="25*"/>
+                        <ColumnDefinition Width="25*"/>
+                    </Grid.ColumnDefinitions>
+                    <Button x:Name="btnSearch" Content="Search" Width="75" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" Margin ="5"/>
+                    <Button x:Name="btnCreate" Content="Create" Width="75" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" Margin ="5"/>
+                    <Button x:Name="btnSave" Content="Save" Width="75" Grid.Row="0" Grid.Column="2" HorizontalAlignment="Center" Margin ="5"/>
+                    <Button x:Name="btnCancel" Content="Cancel" Width="75" Grid.Row="0" Grid.Column="3" HorizontalAlignment="Center" Margin ="5"/>
+                </Grid>
+            </DockPanel>
+        </DockPanel>
+
     </Grid>
 </Window>
