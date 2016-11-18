@@ -37,7 +37,17 @@ namespace Login
 
         private void btnPatients_Click(object sender, RoutedEventArgs e)
         {
+            try
+            {
+                var patientsPage = new PatientsPage();
+                frmeMainFrame.Navigate(patientsPage);
+            }
+            catch (Exception)
+            {
 
+                MessageBox.Show("Problem loading patients screen");
+            }
+            
         }
 
         private void btnSearchText_Click(object sender, RoutedEventArgs e)

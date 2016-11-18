@@ -42,7 +42,7 @@ namespace Login
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-
+            mtdLoadUsers();
         }
 
         private void btnCancel_Click(object sender, RoutedEventArgs e)

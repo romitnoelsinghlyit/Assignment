@@ -99,7 +99,7 @@ Title="Dashboard" Height="700" Width="1100">
                                       Opacity=".50"
                                       ShadowDepth="4" />
                 </Border.Effect>
-                <Frame x:Name="frmeMainFrame" NavigationUIVisibility="Hidden" Navigated="frmeMainFrame_Navigated" >
+                <Frame x:Name="frmeMainFrame" NavigationUIVisibility="Hidden" >
                 </Frame>
             </Border>
         </DockPanel>

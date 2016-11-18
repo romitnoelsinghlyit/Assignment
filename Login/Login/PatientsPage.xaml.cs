@@ -10,16 +10,17 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace Login
 {
     /// <summary>
-    /// Interaction logic for Patients.xaml
+    /// Interaction logic for PatientsPage.xaml
     /// </summary>
-    public partial class Patients : Window
+    public partial class PatientsPage : Page
     {
-        public Patients()
+        public PatientsPage()
         {
             InitializeComponent();
         }
