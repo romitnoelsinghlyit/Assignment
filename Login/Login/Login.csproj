@@ -85,9 +85,6 @@
       <DependentUpon>MyDataModel.tt</DependentUpon>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Compile>
-    <Compile Include="Billing.xaml.cs">
-      <DependentUpon>Billing.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Dashboard.xaml.cs">
       <DependentUpon>Dashboard.xaml</DependentUpon>
     </Compile>
@@ -113,9 +110,15 @@
       <DependentUpon>MyDataModel.tt</DependentUpon>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Compile>
+    <Compile Include="GeneralWard.xaml.cs">
+      <DependentUpon>GeneralWard.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ICU.cs">
       <DependentUpon>MyDataModel.tt</DependentUpon>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="ICU.xaml.cs">
+      <DependentUpon>ICU.xaml</DependentUpon>
     </Compile>
     <Compile Include="MyDataModel.Context.cs">
       <AutoGen>True</AutoGen>
@@ -136,9 +139,15 @@
       <DependentUpon>MyDataModel.tt</DependentUpon>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Compile>
+    <Compile Include="OrthopaedicWard.xaml.cs">
+      <DependentUpon>OrthopaedicWard.xaml</DependentUpon>
+    </Compile>
     <Compile Include="PaediatricWard.cs">
       <DependentUpon>MyDataModel.tt</DependentUpon>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="PaediatricWard.xaml.cs">
+      <DependentUpon>PaediatricWard.xaml</DependentUpon>
     </Compile>
     <Compile Include="Patient.cs">
       <DependentUpon>MyDataModel.tt</DependentUpon>
@@ -151,14 +160,13 @@
       <DependentUpon>MyDataModel.tt</DependentUpon>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Compile>
+    <Compile Include="SurgicalWard.xaml.cs">
+      <DependentUpon>SurgicalWard.xaml</DependentUpon>
+    </Compile>
     <Compile Include="User.cs">
       <DependentUpon>MyDataModel.tt</DependentUpon>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Compile>
-    <Page Include="Billing.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Dashboard.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -168,6 +176,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Emergency.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GeneralWard.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ICU.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -183,7 +199,19 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="OrthopaedicWard.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PaediatricWard.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="PatientsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SurgicalWard.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

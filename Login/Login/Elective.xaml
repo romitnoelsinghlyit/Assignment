@@ -14,7 +14,7 @@
             <RowDefinition Height="75*"/>
             <RowDefinition Height="25*"/>
         </Grid.RowDefinitions>
-        <Label x:Name="lblElectiveHeading" Content="Elective Admissions" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Top" FontWeight="Bold" FontSize="16" Width="187"/>
+        <Label x:Name="lblElectiveHeading" Content="Elective Admissions" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Top" FontWeight="Bold" FontSize="16"/>
         <StackPanel Grid.Row="1">
 
             <ListView x:Name="lstElectivePatients" Height="400" Width ="600"  VerticalAlignment="Top" HorizontalAlignment="Center">
