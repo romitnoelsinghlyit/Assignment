@@ -32,16 +32,16 @@
                 <TextBox x:Name="tbxTestsScansPatientID" Grid.Row="1" Grid.Column="1"  HorizontalAlignment="Left" Height="25"  Margin="5" 
                  TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
 
-                <Label x:Name="lblScans" Content="Scans"  Grid.Row="2" Grid.Column="0"  HorizontalAlignment="Left" Margin="5" VerticalAlignment="Top" FontWeight="Bold"/>
-                <CheckBox x:Name="chkXRAY" Content="X-RAY"  Grid.Row="3" Grid.Column="0" Margin="5" HorizontalAlignment="Center" VerticalAlignment="Top"/>
-                <CheckBox x:Name="chkMRI" Content="MRI"  Grid.Row="3" Grid.Column="1"  HorizontalAlignment="Left" Margin="5" VerticalAlignment="Top"/>
-                <CheckBox x:Name="chkCTScan" Content="CT Scan"  Grid.Row="4" Grid.Column="0" Margin="5" HorizontalAlignment="Center" VerticalAlignment="Top"/>
-                <CheckBox x:Name="chkUltrasound" Content="Ultrasound"   Grid.Row="4" Grid.Column="1" HorizontalAlignment="Left" Margin="5" VerticalAlignment="Top"/>
+                <Label x:Name="lblScans" Content="Scans"  Grid.Row="2" Grid.Column="0"  HorizontalAlignment="Left" Margin="5" VerticalAlignment="Top" FontWeight="Bold" />
+                <CheckBox x:Name="chkXRAY" Content="X-RAY"  Grid.Row="3" Grid.Column="0" Margin="5" HorizontalAlignment="Center" VerticalAlignment="Top" Width="100"/>
+                <CheckBox x:Name="chkMRI" Content="MRI"  Grid.Row="3" Grid.Column="1"  HorizontalAlignment="Left" Margin="5" VerticalAlignment="Top" Width="100"/>
+                <CheckBox x:Name="chkCTScan" Content="CT Scan"  Grid.Row="4" Grid.Column="0" Margin="5" HorizontalAlignment="Center" VerticalAlignment="Top" Width="100"/>
+                <CheckBox x:Name="chkUltrasound" Content="Ultrasound"   Grid.Row="4" Grid.Column="1" HorizontalAlignment="Left" Margin="5" VerticalAlignment="Top" Width="100"/>
 
                 <Label x:Name="lblTests" Content="Tests" HorizontalAlignment="Left"  Grid.Row="5" Grid.Column="0"  Margin="5" VerticalAlignment="Top" FontWeight="Bold"/>
-                <CheckBox x:Name="chkBloodTest" Content="Blood Test"  Grid.Row="6" Grid.Column="0"  HorizontalAlignment="Center" Margin="5" VerticalAlignment="Top"/>
-                <CheckBox x:Name="chkSugarTest" Content="Sugar Test"  Grid.Row="6" Grid.Column="1"  HorizontalAlignment="Left" Margin="5" VerticalAlignment="Top"/>
-                <CheckBox x:Name="chkAllergyTest" Content="Allergy Test" Grid.Row="7" Grid.Column="0" HorizontalAlignment="Center" Margin="5" VerticalAlignment="Top"/>
+                <CheckBox x:Name="chkBloodTest" Content="Blood Test"  Grid.Row="6" Grid.Column="0"  HorizontalAlignment="Center" Margin="5" VerticalAlignment="Top" Width="100"/>
+                <CheckBox x:Name="chkSugarTest" Content="Sugar Test"  Grid.Row="6" Grid.Column="1"  HorizontalAlignment="Left" Margin="5" VerticalAlignment="Top" Width="100"/>
+                <CheckBox x:Name="chkAllergyTest" Content="Allergy Test" Grid.Row="7" Grid.Column="0" HorizontalAlignment="Center" Margin="5" VerticalAlignment="Top" Width="100"/>
 
                 <Button x:Name="btnTestsScansOK" Content="OK" Grid.Row="8" Grid.Column="1"  HorizontalAlignment="Center" Margin="5" VerticalAlignment="Top" Width="75" FontWeight="Bold"/>
                 <Button x:Name="btnCancel" Content="Cancel"  Grid.Row="8" Grid.Column="0"  HorizontalAlignment="Center" Margin="5" VerticalAlignment="Top" Width="75" FontWeight="Bold"/>
