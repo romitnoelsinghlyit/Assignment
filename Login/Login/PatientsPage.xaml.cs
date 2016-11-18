@@ -24,5 +24,10 @@ namespace Login
         {
             InitializeComponent();
         }
+
+        private void tbxAddress_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
     }
 }

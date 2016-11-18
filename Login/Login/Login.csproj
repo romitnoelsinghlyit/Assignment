@@ -102,15 +102,15 @@
       <DependentUpon>MyDataModel.tt</DependentUpon>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Compile>
-    <Compile Include="Elective.xaml.cs">
-      <DependentUpon>Elective.xaml</DependentUpon>
+    <Compile Include="ElectiveAdmissons.xaml.cs">
+      <DependentUpon>ElectiveAdmissons.xaml</DependentUpon>
     </Compile>
     <Compile Include="Emergency.cs">
       <DependentUpon>MyDataModel.tt</DependentUpon>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Compile>
-    <Compile Include="Emergency.xaml.cs">
-      <DependentUpon>Emergency.xaml</DependentUpon>
+    <Compile Include="EmergencyAdmissons.xaml.cs">
+      <DependentUpon>EmergencyAdmissons.xaml</DependentUpon>
     </Compile>
     <Compile Include="GeneralWard.cs">
       <DependentUpon>MyDataModel.tt</DependentUpon>
@@ -188,11 +188,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Elective.xaml">
+    <Page Include="ElectiveAdmissons.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Emergency.xaml">
+    <Page Include="EmergencyAdmissons.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

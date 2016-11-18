@@ -98,7 +98,7 @@
                 </Grid>
             </StackPanel>
         </StackPanel>
-        <Button x:Name="btnBillingExit" Grid.Row="3" Content="Exit" HorizontalAlignment="Center" Margin="3" VerticalAlignment="Top" Width="75" Click="btnBillingExit_Click"/>
+        <Button x:Name="btnBillingExit" Grid.Row="3" Content="Exit" HorizontalAlignment="Center" Margin="3" VerticalAlignment="Top" Width="75"/>
     </Grid>
 </Page>
 

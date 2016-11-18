@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace Login
 {
     /// <summary>
-    /// Interaction logic for Elective.xaml
+    /// Interaction logic for Emergency.xaml
     /// </summary>
-    public partial class Elective : Page
+    public partial class EmergencyAdmissons : Page
     {
-        public Elective()
+        public EmergencyAdmissons()
         {
             InitializeComponent();
         }
