@@ -73,22 +73,22 @@
 
                     <Label x:Name="lblUserID" Content="User ID" Grid.Row="1" Grid.Column="0"  HorizontalAlignment="Center" VerticalAlignment="Top"/>
                     <TextBox x:Name="tbxUserID" HorizontalAlignment="Left"  Grid.Row="1" Grid.Column="1" Height="25" Margin="3" 
-                             TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+                        TabIndex="0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
 
                     <Label x:Name="lblDeleteUsername" Content="Username"  Grid.Row="2" Grid.Column="0" HorizontalAlignment="Center" Margin="3" VerticalAlignment="Top"/>
                     <TextBox x:Name="tbxDeleteUsername"   Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left" Height="25" Margin="3" 
-                             TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+                         TabIndex="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
 
                     <Label x:Name="llbldeleteSurname" Content="Surname"  Grid.Row="3" Grid.Column="0" HorizontalAlignment="Center" Margin="3" VerticalAlignment="Top"/>
                     <TextBox x:Name="tbxDeleteSurname" HorizontalAlignment="Left"  Grid.Row="3" Grid.Column="1" Height="25" 
-                             TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Margin="3"/>                                              
+                         TabIndex="2" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Margin="3"/>                                              
                                        
                     <Label x:Name="lblDeleteForename" Content="Forename"  Grid.Row="4" Grid.Column="0" HorizontalAlignment="Center" Margin="3" VerticalAlignment="Top"/>
                     <TextBox x:Name="tbxDeleteForename"   Grid.Row="4" Grid.Column="1" HorizontalAlignment="Left" Height="25" Margin="3" 
-                             TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+                             TabIndex="3"  TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
 
-                    <Button x:Name="btnDeleteCancel" Content="Cancel"  Grid.Row="5" Grid.Column="0"  HorizontalAlignment="Center" Margin="3" VerticalAlignment="Top" Width="100" Height="25"/>
-                    <Button x:Name="btnDeleteUser" Content="Delete User"   Grid.Row="5" Grid.Column="1" HorizontalAlignment="Center" Margin="3" VerticalAlignment="Top" Width="100" Height="25"/>
+                    <Button x:Name="btnDeleteCancel" Content="Cancel"  Grid.Row="5" Grid.Column="0"  HorizontalAlignment="Center" Margin="3" VerticalAlignment="Top" Width="100" Height="25" TabIndex="5"/>
+                    <Button x:Name="btnDeleteUser" Content="Delete User"   Grid.Row="5" Grid.Column="1" HorizontalAlignment="Center" Margin="3" VerticalAlignment="Top" Width="100" Height="25" TabIndex="4"/>
 
                 </Grid>
             </TabItem>
