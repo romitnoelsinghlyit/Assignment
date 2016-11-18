@@ -11,7 +11,7 @@
     <Grid>
         <TabControl x:Name="tbcAdministration">
             <TabItem x:Name="tbiCreateUser" Header="Create User" FontWeight="Bold">
-                <Grid x:Name="cmbAccessLevel" Background="#FFE5E5E5">
+                <Grid Background="#FFE5E5E5">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="15*"/>
                         <RowDefinition Height="15*"/>
@@ -44,7 +44,7 @@
                              TabIndex="3" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
 
                     <Label x:Name="lblAccessLevel" Content="Access Level" Grid.Row="5" Grid.Column="0"  HorizontalAlignment="Center" Margin="3" VerticalAlignment="Top"/>
-                    <ComboBox x:Name="comboBox"  Grid.Row="5" Grid.Column="1"   HorizontalAlignment="Left" Margin="3" VerticalAlignment="Top" Height="25" Width="120" TabIndex="4" />
+                    <ComboBox x:Name="cmbAccessLevel"  Grid.Row="5" Grid.Column="1"   HorizontalAlignment="Left" Margin="3" VerticalAlignment="Top" Height="25" Width="120" TabIndex="4" />
 
 
 
@@ -57,17 +57,39 @@
             </TabItem>
             <TabItem x:Name="tbiDeleteUser" Header="Delete User" FontWeight="Bold">
                 <Grid Background="#FFE5E5E5">
-                    <Label x:Name="lblDeleteEnterHeading" Content="Enter Details" Margin="211,10,211,0" VerticalAlignment="Top"/>
-                    <Label x:Name="lblDeleteUsername" Content="Username" HorizontalAlignment="Left" Margin="40,50,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.775,-0.269"/>
-                    <Label x:Name="llbldeleteSurname" Content="Surname" HorizontalAlignment="Left" Margin="40,90,0,0" VerticalAlignment="Top"/>
-                    <Label x:Name="lblDeleteForename" Content="Forename" HorizontalAlignment="Left" Margin="40,130,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.075,-0.808"/>
-                    <Label x:Name="lblUserID" Content="User ID" HorizontalAlignment="Left" Margin="40,170,0,0" VerticalAlignment="Top"/>
-                    <TextBox x:Name="tbxDeleteUsername" HorizontalAlignment="Left" Height="23" Margin="150,52,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-                    <TextBox x:Name="tbxDeleteSurname" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Margin="150,92,0,0"/>
-                    <TextBox x:Name="tbxDeleteForename" HorizontalAlignment="Left" Height="23" Margin="150,132,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-                    <TextBox x:Name="tbxUserID" HorizontalAlignment="Left" Height="23" Margin="150,172,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-                    <Button x:Name="btnDeleteUser" Content="Delete User" HorizontalAlignment="Left" Margin="154,215,0,0" VerticalAlignment="Top" Width="75" Click="button2_Click"/>
-                    <Button x:Name="btnDeleteCancel" Content="Cancel" Margin="282,215,154,0" VerticalAlignment="Top" RenderTransformOrigin="-0.027,0.7"/>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="10*"/>
+                        <RowDefinition Height="18*"/>
+                        <RowDefinition Height="18*"/>
+                        <RowDefinition Height="18*"/>
+                        <RowDefinition Height="18*"/>
+                        <RowDefinition Height="18*"/>                     
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="50*"/>
+                        <ColumnDefinition Width="50*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label x:Name="lblDeleteEnterHeading" Content="Enter Details" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Center" Margin="1" VerticalAlignment="Top" FontStyle="Italic"/>
+
+                    <Label x:Name="lblUserID" Content="User ID" Grid.Row="1" Grid.Column="0"  HorizontalAlignment="Center" VerticalAlignment="Top"/>
+                    <TextBox x:Name="tbxUserID" HorizontalAlignment="Left"  Grid.Row="1" Grid.Column="1" Height="25" Margin="3" 
+                             TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+
+                    <Label x:Name="lblDeleteUsername" Content="Username"  Grid.Row="2" Grid.Column="0" HorizontalAlignment="Center" Margin="3" VerticalAlignment="Top"/>
+                    <TextBox x:Name="tbxDeleteUsername"   Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left" Height="25" Margin="3" 
+                             TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+
+                    <Label x:Name="llbldeleteSurname" Content="Surname"  Grid.Row="3" Grid.Column="0" HorizontalAlignment="Center" Margin="3" VerticalAlignment="Top"/>
+                    <TextBox x:Name="tbxDeleteSurname" HorizontalAlignment="Left"  Grid.Row="3" Grid.Column="1" Height="25" 
+                             TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Margin="3"/>                                              
+                                       
+                    <Label x:Name="lblDeleteForename" Content="Forename"  Grid.Row="4" Grid.Column="0" HorizontalAlignment="Center" Margin="3" VerticalAlignment="Top"/>
+                    <TextBox x:Name="tbxDeleteForename"   Grid.Row="4" Grid.Column="1" HorizontalAlignment="Left" Height="25" Margin="3" 
+                             TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+
+                    <Button x:Name="btnDeleteCancel" Content="Cancel"  Grid.Row="5" Grid.Column="0"  HorizontalAlignment="Center" Margin="3" VerticalAlignment="Top" Width="100" Height="25"/>
+                    <Button x:Name="btnDeleteUser" Content="Delete User"   Grid.Row="5" Grid.Column="1" HorizontalAlignment="Center" Margin="3" VerticalAlignment="Top" Width="100" Height="25"/>
+
                 </Grid>
             </TabItem>
         </TabControl>
