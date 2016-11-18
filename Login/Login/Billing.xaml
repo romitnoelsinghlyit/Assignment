@@ -1,0 +1,104 @@
+﻿<Page x:Class="Login.Billing"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Login"
+      mc:Ignorable="d"  
+      d:DesignHeight="400" d:DesignWidth="600"
+      Title="Billing">
+
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10*"/>
+            <RowDefinition Height="30*"/>
+            <RowDefinition Height="40*"/>
+            <RowDefinition Height="10*"/>
+        </Grid.RowDefinitions>
+        <Label x:Name="lblBillingHeading" Grid.Row="0" Content="Billing" Margin="2" Height="32" VerticalAlignment="Top" HorizontalAlignment="Center" FontWeight="Bold" FontSize="16"/>
+        <StackPanel Grid.Row="1">
+            <StackPanel HorizontalAlignment="Stretch">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="25*"/>
+                        <RowDefinition Height="25*"/>
+                        <RowDefinition Height="25*"/>
+                        <RowDefinition Height="25*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="20*"/>
+                        <ColumnDefinition Width="20*"/>
+                        <ColumnDefinition Width="20*"/>
+                        <ColumnDefinition Width="20*"/>
+                        <ColumnDefinition Width="20*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label x:Name="lblPatientID" Content="Patient ID" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Right" Margin="3" VerticalAlignment="Top"/>
+                    <TextBox x:Name="tbxBillingPatientID" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Left" Height="25" Margin="3" TextWrapping="Wrap" VerticalAlignment="Top" Width="110"/>
+
+                    <Label x:Name="lblDateOfDischarge" Content="Date of Discharge" Grid.Row="0"  Grid.Column="2" HorizontalAlignment="Right" Margin="3" VerticalAlignment="Top"/>
+                    <DatePicker x:Name="dtpBillingDischargeDate" Grid.Row="0" Grid.Column="3" HorizontalAlignment="Left" Margin="3" Height="25" VerticalAlignment="Top" Width="110"/>
+                    <Button x:Name="btnBillingSearch" Content="Search" Grid.Row="0" Grid.Column="4" HorizontalAlignment="Center" Margin="3" VerticalAlignment="Top" Width="75" Height="25"/>
+
+
+                    <Label x:Name="lblName" Content="Name" Grid.Row="1" Grid.Column="0"  HorizontalAlignment="Right" Margin="3" VerticalAlignment="Top"/>
+                    <TextBox x:Name="tbxBillingName" Grid.Row="1" Grid.Column="1"  HorizontalAlignment="Left" Height="25" Margin="3" TextWrapping="Wrap" VerticalAlignment="Top" Width="110" IsEnabled="False"/>
+
+
+                    <Label x:Name="lblWard" Content="Ward"  Grid.Row="2" Grid.Column="0" HorizontalAlignment="Right" Margin="3" VerticalAlignment="Top"/>
+                    <TextBox x:Name="tbxBillingWard" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left" Height="25" Margin="3" TextWrapping="Wrap" VerticalAlignment="Top" Width="110" IsEnabled="False"/>
+
+                    <Label x:Name="lblBedNo" Content="Bed No." Grid.Row="2" Grid.Column="2"  HorizontalAlignment="Right" Margin="3" VerticalAlignment="Top"/>
+                    <TextBox x:Name="tbxBillingBedNo" Grid.Row="2" Grid.Column="3"  HorizontalAlignment="Left" Height="23" Margin="3" TextWrapping="Wrap" VerticalAlignment="Top" Width="110" IsEnabled="False"/>
+
+                    <Label x:Name="lblArrivalDate" Content="Arrival Date" Grid.Row="3" Grid.Column="0" HorizontalAlignment="Right" Margin="3" VerticalAlignment="Top"/>
+                    <TextBox x:Name="tbxBillingArrivalDate" Grid.Row="3" Grid.Column="1"  HorizontalAlignment="Left" Height="23" Margin="3" TextWrapping="Wrap" VerticalAlignment="Top" Width="110" IsEnabled="False"/>
+                </Grid>
+            </StackPanel>
+        </StackPanel>
+        <StackPanel Grid.Row="2">
+            <StackPanel HorizontalAlignment="Stretch">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="20*"/>
+                        <RowDefinition Height="20*"/>
+                        <RowDefinition Height="20*"/>
+                        <RowDefinition Height="20*"/>
+                        <RowDefinition Height="20*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="20*"/>
+                        <ColumnDefinition Width="20*"/>
+                        <ColumnDefinition Width="20*"/>
+                        <ColumnDefinition Width="20*"/>
+                        <ColumnDefinition Width="20*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label x:Name="lblChargesHeading" Content="Charges" Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="1" HorizontalAlignment="Center" Margin="3" VerticalAlignment="Top" FontWeight="Bold" FontStyle="Italic" FontSize="13"/>
+
+                    <Label x:Name="lblHospitalCharges" Content="Hospital Charges"  Grid.Row="1" Grid.Column="0" HorizontalAlignment="Right" Margin="3" VerticalAlignment="Top"/>
+                    <TextBox x:Name="tbxBillingHospitalCharges" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" Height="25" Margin="3" TextWrapping="Wrap" VerticalAlignment="Top" Width="110" IsEnabled="False"/>
+                    <Label x:Name="lblXRAY" Content="X-RAY"  Grid.Row="1" Grid.Column="2" HorizontalAlignment="Right" Margin="3" VerticalAlignment="Top"/>
+                    <TextBox x:Name="tbxBillingXRAY"  Grid.Row="1" Grid.Column="3"  HorizontalAlignment="Left" Height="23" Margin="3" TextWrapping="Wrap" VerticalAlignment="Top" Width="110" IsEnabled="False"/>
+
+                    <Label x:Name="lblBloodTest" Content="Blood Test" Grid.Row="2" Grid.Column="0"  HorizontalAlignment="Right" Margin="3" VerticalAlignment="Top"/>
+                    <TextBox x:Name="tbxBillingBloodTest"  Grid.Row="2" Grid.Column="1"   HorizontalAlignment="Left" Height="25" Margin="3" TextWrapping="Wrap" VerticalAlignment="Top" Width="110" IsEnabled="False"/>
+                    <Label x:Name="lblMRI" Content="MRI"  Grid.Row="2" Grid.Column="2"  HorizontalAlignment="Right" Margin="3" VerticalAlignment="Top"/>
+                    <TextBox x:Name="tbxBillingMRI" Grid.Row="2" Grid.Column="3" HorizontalAlignment="Left" Height="25" Margin="3" TextWrapping="Wrap" VerticalAlignment="Top" Width="110" IsEnabled="False"/>
+
+
+                    <Label x:Name="lblSugarTest" Content="Sugar Test"  Grid.Row="3" Grid.Column="0" HorizontalAlignment="Right" Margin="3" VerticalAlignment="Top"/>
+                    <TextBox x:Name="tbxBillingSugarTest"  Grid.Row="3" Grid.Column="1"  HorizontalAlignment="Left" Height="25" Margin="3" TextWrapping="Wrap" VerticalAlignment="Top" Width="110" IsEnabled="False"/>
+                    <Label x:Name="lblCTScan" Content="CT Scan"  Grid.Row="3" Grid.Column="2"  HorizontalAlignment="Right" Margin="3" VerticalAlignment="Top"/>
+                    <TextBox x:Name="tbxBillingCTScan"  Grid.Row="3" Grid.Column="3"  HorizontalAlignment="Left" Height="25" Margin="3" TextWrapping="Wrap" VerticalAlignment="Top" Width="110" IsEnabled="False"/>
+
+                    <Label x:Name="lblAllergyTest" Content="Allergy Test"  Grid.Row="4" Grid.Column="0"   HorizontalAlignment="Right" Margin="3" VerticalAlignment="Top"/>
+                    <TextBox x:Name="tbxBillingAllergyTest"  Grid.Row="4" Grid.Column="1"   HorizontalAlignment="Left" Height="25" Margin="3" TextWrapping="Wrap" VerticalAlignment="Top" Width="110" IsEnabled="False"/>
+                    <Label x:Name="lblUltrasound" Content="Ultrasound"  Grid.Row="4" Grid.Column="2"   HorizontalAlignment="Right" Margin="3" VerticalAlignment="Top"/>
+                    <TextBox x:Name="tbxBillingUltrasound"  Grid.Row="4" Grid.Column="3"   HorizontalAlignment="Left" Height="25" Margin="3" TextWrapping="Wrap" VerticalAlignment="Top" Width="110" IsEnabled="False"/>
+                </Grid>
+            </StackPanel>
+        </StackPanel>
+        <Button x:Name="btnBillingExit" Grid.Row="3" Content="Exit" HorizontalAlignment="Center" Margin="3" VerticalAlignment="Top" Width="75" Click="btnBillingExit_Click"/>
+    </Grid>
+</Page>
+
