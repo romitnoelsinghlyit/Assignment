@@ -27,7 +27,7 @@ namespace Login
         public MainWindow()
         {
             InitializeComponent();
-            tbxUserID.Focus();
+            tbxUserName.Focus();
         }
 
         private void mtdLoadUsers()
@@ -54,7 +54,7 @@ namespace Login
         private void btnLogin_Click(object sender, RoutedEventArgs e)
         {
             User userDetails = new User();
-            string currentUser = tbxUserID.Text.Trim();
+            string currentUser = tbxUserName.Text.Trim();
             string currentPassword = tbxPassword.Password;
             userDetails = mtdGetUserDetails(currentUser, currentPassword);
              try
@@ -69,9 +69,9 @@ namespace Login
                 else
                 {
                     lblLoginAdvice.Content = "Invalid details!";
-                    tbxUserID.Text = "";
+                    tbxUserName.Text = "";
                     tbxPassword.Password = "";
-                    tbxUserID.Focus();
+                    tbxUserName.Focus();
                 }
              }
              catch (InvalidCastException)
@@ -86,12 +86,12 @@ namespace Login
             }
         }
 
-        private User mtdGetUserDetails(string userID, string password)
+        private User mtdGetUserDetails(string UserName, string password)
         {
             User userDetails = new User();
             foreach (var user in userList)
             {
-                if (userID == user.UserID && password == user.Password)
+                if (UserName == user.UserName && password == user.Password)
                 {
                     userDetails = user;
                 }
