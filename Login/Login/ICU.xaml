@@ -5,10 +5,44 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Login"
       mc:Ignorable="d" 
-      d:DesignHeight="300" d:DesignWidth="300"
+      d:DesignHeight="450" d:DesignWidth="650"
       Title="ICU">
 
+
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10*"/>
+            <RowDefinition Height="75*"/>
+            <RowDefinition Height="25*"/>
+        </Grid.RowDefinitions>
+        <Label x:Name="lblICUWardHeading" Content="ICU" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Top" FontWeight="Bold" FontSize="16"/>
+        <StackPanel Grid.Row="1">
+
+            <ListView x:Name="lstICUWardPatients" Height="416" Width ="600"  VerticalAlignment="Top">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header=" Patient ID" Width="100"/>
+                        <GridViewColumn Header=" Bed No." Width="50"/>
+                        <GridViewColumn Header=" Name" Width="150"/>
+                        <GridViewColumn Header=" Date of Birth" Width="100"/>
+                        <GridViewColumn Header=" Arrival Date" Width="100"/>
+                        <GridViewColumn Header=" Consultant" Width="100"/>
+
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </StackPanel>
+        <StackPanel Grid.Row="3">
+            <StackPanel>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="50*"/>
+                        <ColumnDefinition Width="50*"/>
+                    </Grid.ColumnDefinitions>
+                    <Button x:Name="btnExit" Content="Exit"  Grid.Column="0" HorizontalAlignment="Right" Margin="5" VerticalAlignment="Top" Width="100" Height="25" FontWeight="Bold" IsCancel="True"/>
+                    <Button x:Name="btnICUWardStatus" Grid.Column="1" HorizontalAlignment="Left" Content="Ward Status" Margin="5"   Width="100" Height="25" VerticalAlignment="Top" FontWeight="Bold"/>
+                </Grid>
+            </StackPanel>
+        </StackPanel>
     </Grid>
 </Page>
