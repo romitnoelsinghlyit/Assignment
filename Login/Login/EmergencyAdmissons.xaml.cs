@@ -16,13 +16,18 @@ using System.Windows.Shapes;
 namespace Login
 {
     /// <summary>
-    /// Interaction logic for Emergency.xaml
+    /// Interaction logic for EmergencyAdmissons.xaml
     /// </summary>
     public partial class EmergencyAdmissons : Page
     {
         public EmergencyAdmissons()
         {
             InitializeComponent();
+        }
+
+        private void lstEmergencyPatients_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }

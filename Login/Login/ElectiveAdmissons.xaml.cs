@@ -16,7 +16,7 @@ using System.Windows.Shapes;
 namespace Login
 {
     /// <summary>
-    /// Interaction logic for Elective.xaml
+    /// Interaction logic for ElectiveAdmissons.xaml
     /// </summary>
     public partial class ElectiveAdmissons : Page
     {

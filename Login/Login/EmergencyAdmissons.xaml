@@ -18,7 +18,7 @@
         <Label x:Name="lblEmergencyHeading" Content="Emergency Admissions" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Top" FontWeight="Bold" FontSize="16"/>
         <StackPanel Grid.Row="1">
 
-            <ListView x:Name="lstEmergencyPatients" Height="400" Width ="600"  VerticalAlignment="Top" HorizontalAlignment="Center">
+            <ListView x:Name="lstEmergencyPatients" Height="400" Width ="600"  VerticalAlignment="Top" HorizontalAlignment="Center" SelectionChanged="lstEmergencyPatients_SelectionChanged">
                 <ListView.View>
                     <GridView>
                         <GridViewColumn Header=" Patient ID" Width="120"/>
