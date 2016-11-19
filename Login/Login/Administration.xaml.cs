@@ -24,5 +24,11 @@ namespace Login
         {
             InitializeComponent();
         }
+
+        private void btnCancel_Click(object sender, RoutedEventArgs e)
+        {
+            
+
+        }
     }
 }
