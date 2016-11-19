@@ -44,7 +44,7 @@
                 <CheckBox x:Name="chkAllergyTest" Content="Allergy Test" Grid.Row="7" Grid.Column="0" HorizontalAlignment="Center" Margin="5" VerticalAlignment="Top" Width="100"/>
 
                 <Button x:Name="btnTestsScansOK" Content="OK" Grid.Row="8" Grid.Column="1"  HorizontalAlignment="Center" Margin="5" VerticalAlignment="Top" Width="75" FontWeight="Bold"/>
-                <Button x:Name="btnCancel" Content="Cancel"  Grid.Row="8" Grid.Column="0"  HorizontalAlignment="Center" Margin="5" VerticalAlignment="Top" Width="75" FontWeight="Bold"/>
+                <Button x:Name="btnCancel" Content="Cancel"  Grid.Row="8" Grid.Column="0"  HorizontalAlignment="Center" Margin="5" VerticalAlignment="Top" Width="75" FontWeight="Bold" IsCancel="True"/>
 
             </Grid>
         </StackPanel>
