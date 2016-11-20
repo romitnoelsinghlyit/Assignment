@@ -82,7 +82,7 @@
                     <TextBox x:Name="tbxDeleteForename"   Grid.Row="4" Grid.Column="1" HorizontalAlignment="Left" Height="25" Margin="3" 
                              TabIndex="3"  TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
 
-                    <Button x:Name="btnDeleteCancel" Content="Cancel"  Grid.Row="5" Grid.Column="0"  HorizontalAlignment="Center" Margin="3" VerticalAlignment="Top" Width="100" Height="25" TabIndex="5" IsCancel="True"/>
+                    <Button x:Name="btnDeleteCancel" Content="Cancel"  Grid.Row="5" Grid.Column="0"  HorizontalAlignment="Center" Margin="3" VerticalAlignment="Top" Width="100" Height="25" TabIndex="5" Click="btnDeleteCancel_Click"/>
                     <Button x:Name="btnDeleteUser" Content="Delete User"   Grid.Row="5" Grid.Column="1" HorizontalAlignment="Center" Margin="3" VerticalAlignment="Top" Width="100" Height="25" TabIndex="4"/>
 
                 </Grid>
