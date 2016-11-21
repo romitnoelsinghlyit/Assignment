@@ -91,6 +91,9 @@
     <Compile Include="Billing.xaml.cs">
       <DependentUpon>Billing.xaml</DependentUpon>
     </Compile>
+    <Compile Include="BlankScreen.xaml.cs">
+      <DependentUpon>BlankScreen.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Dashboard.xaml.cs">
       <DependentUpon>Dashboard.xaml</DependentUpon>
     </Compile>
@@ -181,6 +184,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Billing.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="BlankScreen.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

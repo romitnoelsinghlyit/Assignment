@@ -38,7 +38,7 @@
                         <ColumnDefinition Width="50*"/>
                         <ColumnDefinition Width="50*"/>
                     </Grid.ColumnDefinitions>
-                    <Button x:Name="btnExit" Content="Exit"  Grid.Column="0" HorizontalAlignment="Right" Margin="5" VerticalAlignment="Top" Width="100" Height="25" FontWeight="Bold" Click="btnExit_Click" IsCancel="True"/>
+                    <Button x:Name="btnExit" Content="Exit"  Grid.Column="0" HorizontalAlignment="Right" Margin="5" VerticalAlignment="Top" Width="100" Height="25" FontWeight="Bold" Click="btnExit_Click"/>
                     <Button x:Name="btnEmergencyBedAllot" Grid.Column="1" HorizontalAlignment="Left" Content="Bed Allotment" Margin="5"   Width="100" Height="25" VerticalAlignment="Top" FontWeight="Bold"/>
                 </Grid>
             </StackPanel>

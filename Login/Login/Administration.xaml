@@ -46,7 +46,7 @@
                     <Label x:Name="lblAccessLevel" Content="Access Level" Grid.Row="5" Grid.Column="0"  HorizontalAlignment="Center" Margin="3" VerticalAlignment="Top"/>
                     <ComboBox x:Name="cmbAccessLevel"  Grid.Row="5" Grid.Column="1"   HorizontalAlignment="Left" Margin="3" VerticalAlignment="Top" Height="25" Width="120" TabIndex="4" />
 
-                    <Button x:Name="btnCancel" Content="Cancel"  Grid.Row="6" Grid.Column="0"   Margin="36,3,36,4" HorizontalAlignment="Center" Width="75" TabIndex="6" Click="btnCancel_Click" IsCancel="True"/>
+                    <Button x:Name="btnCancel" Content="Cancel"  Grid.Row="6" Grid.Column="0"   Margin="36,3,36,4" HorizontalAlignment="Center" Width="75" TabIndex="6" Click="btnCancel_Click"/>
                     <Button x:Name="btnCreateUser" Content="Create"   Grid.Row="6" Grid.Column="1"  HorizontalAlignment="Center" Margin="3" VerticalAlignment="Top" Width="75" TabIndex="5"/>
                 </Grid>
             </TabItem>

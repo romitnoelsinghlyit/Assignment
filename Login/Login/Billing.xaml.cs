@@ -20,9 +20,25 @@ namespace Login
     /// </summary>
     public partial class Billing : Page
     {
+        Dashboard dashboard = new Dashboard();
         public Billing()
         {
             InitializeComponent();
+        }
+
+        private void btnBillingExit_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                var blankScreen = new BlankScreen();
+               
+                dashboard.frmeMainFrame.Navigate(blankScreen);
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show("Problem loading patients screen");
+            }
         }
     }
 }

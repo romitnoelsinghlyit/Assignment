@@ -20,6 +20,7 @@ namespace Login
     /// </summary>
     public partial class ElectiveAdmissons : Page
     {
+        Dashboard dashboard = new Dashboard();
         public ElectiveAdmissons()
         {
             InitializeComponent();
@@ -28,6 +29,20 @@ namespace Login
         private void lstElectivePatients_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
+        }
+
+        private void btnExit_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                BlankScreen blankScreen = new BlankScreen();
+                dashboard.frmeMainFrame.Navigate(blankScreen);
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show("Problem loading Blank screen");
+            }
         }
     }
 }
