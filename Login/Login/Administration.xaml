@@ -44,10 +44,19 @@
                              TabIndex="3" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
 
                     <Label x:Name="lblAccessLevel" Content="Access Level" Grid.Row="5" Grid.Column="0"  HorizontalAlignment="Center" Margin="3" VerticalAlignment="Top"/>
-                    <ComboBox x:Name="cmbAccessLevel"  Grid.Row="5" Grid.Column="1"   HorizontalAlignment="Left" Margin="3" VerticalAlignment="Top" Height="25" Width="120" TabIndex="4" />
+                    <ComboBox x:Name="cmbAccessLevel"  Grid.Row="5" Grid.Column="1"   HorizontalAlignment="Left" Margin="3" VerticalAlignment="Top" Height="25" Width="120" TabIndex="4">
+                        <ComboBoxItem  IsSelected="True">1</ComboBoxItem>
+                        <ComboBoxItem>2</ComboBoxItem>
+                        <ComboBoxItem>3</ComboBoxItem>
+                        <ComboBoxItem>4</ComboBoxItem>
+                    </ComboBox>
+
+
+
+
 
                     <Button x:Name="btnCancel" Content="Cancel"  Grid.Row="6" Grid.Column="0"   Margin="36,3,36,4" HorizontalAlignment="Center" Width="75" TabIndex="6" Click="btnCancel_Click"/>
-                    <Button x:Name="btnCreateUser" Content="Create"   Grid.Row="6" Grid.Column="1"  HorizontalAlignment="Center" Margin="3" VerticalAlignment="Top" Width="75" TabIndex="5"/>
+                    <Button x:Name="btnCreateUser" Content="Create"   Grid.Row="6" Grid.Column="1"  HorizontalAlignment="Center" Margin="36,3,36,4" Width="75" TabIndex="5" Click="btnCreateUser_Click"/>
                 </Grid>
             </TabItem>
             <TabItem x:Name="tbiDeleteUser" Header="Delete User" FontWeight="Bold">

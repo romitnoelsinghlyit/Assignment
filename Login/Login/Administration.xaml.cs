@@ -25,14 +25,10 @@ namespace Login
             InitializeComponent();
         }
 
-        private void btnCancel_Click(object sender, RoutedEventArgs e)
-        {
-           
-        }
 
-        private void btnDeleteCancel_Click(object sender, RoutedEventArgs e)
+        private void btnCreateUser_Click(object sender, RoutedEventArgs e)
         {
-           
+
         }
     }
 }

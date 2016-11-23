@@ -20,12 +20,21 @@ namespace Login
     /// </summary>
     public partial class PatientsPage : Page
     {
+
+        User localUser = new User();
+        public HMDatabaseEntities dbEntities = new HMDatabaseEntities();
+
         public PatientsPage()
         {
             InitializeComponent();
         }
+         
+        private void btnCreate_Click(object sender, RoutedEventArgs e)
+        {
 
-        private void tbxAddress_TextChanged(object sender, TextChangedEventArgs e)
+        }
+
+        private void cmbSex_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
         }
