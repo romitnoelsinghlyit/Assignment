@@ -6,7 +6,6 @@
     <edmx:Diagrams>
       <Diagram DiagramId="5bf4fe75d30e4dc293b1d2b5ff15c2bd" Name="Diagram1">
         <EntityTypeShape EntityType="HMDatabaseModel.Billing" Width="1.5" PointX="3" PointY="9.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="HMDatabaseModel.Department" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
         <EntityTypeShape EntityType="HMDatabaseModel.Elective" Width="1.5" PointX="3" PointY="13.625" IsExpanded="true" />
         <EntityTypeShape EntityType="HMDatabaseModel.Emergency" Width="1.5" PointX="3" PointY="17.875" IsExpanded="true" />
         <EntityTypeShape EntityType="HMDatabaseModel.GeneralWard" Width="1.5" PointX="5.25" PointY="15.5" IsExpanded="true" />
@@ -17,7 +16,6 @@
         <EntityTypeShape EntityType="HMDatabaseModel.SurgicalWard" Width="1.5" PointX="8.25" PointY="11.5" IsExpanded="true" />
         <EntityTypeShape EntityType="HMDatabaseModel.User" Width="1.5" PointX="0.75" PointY="0.875" IsExpanded="true" />
         <AssociationConnector Association="HMDatabaseModel.FK_Billing_Patients" ManuallyRouted="false" />
-        <AssociationConnector Association="HMDatabaseModel.FK_Departments_Users" ManuallyRouted="false" />
         <AssociationConnector Association="HMDatabaseModel.FK_Elective_Patients" ManuallyRouted="false" />
         <AssociationConnector Association="HMDatabaseModel.FK_GeneralWard_Elective" ManuallyRouted="false" />
         <AssociationConnector Association="HMDatabaseModel.FK_ICU_Elective" ManuallyRouted="false" />

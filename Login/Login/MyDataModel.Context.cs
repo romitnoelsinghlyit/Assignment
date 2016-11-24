@@ -26,7 +26,6 @@ namespace Login
         }
     
         public virtual DbSet<Billing> Billings { get; set; }
-        public virtual DbSet<Department> Departments { get; set; }
         public virtual DbSet<Elective> Electives { get; set; }
         public virtual DbSet<Emergency> Emergencies { get; set; }
         public virtual DbSet<GeneralWard> GeneralWards { get; set; }

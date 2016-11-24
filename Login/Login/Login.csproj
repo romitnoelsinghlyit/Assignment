@@ -81,9 +81,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Administration.xaml.cs">
-      <DependentUpon>Administration.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Billing.cs">
       <DependentUpon>MyDataModel.tt</DependentUpon>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -96,10 +93,6 @@
     </Compile>
     <Compile Include="Dashboard.xaml.cs">
       <DependentUpon>Dashboard.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Department.cs">
-      <DependentUpon>MyDataModel.tt</DependentUpon>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Compile>
     <Compile Include="Elective.cs">
       <DependentUpon>MyDataModel.tt</DependentUpon>
@@ -179,10 +172,9 @@
       <DependentUpon>MyDataModel.tt</DependentUpon>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Compile>
-    <Page Include="Administration.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
+    <Compile Include="UserAdministration.xaml.cs">
+      <DependentUpon>UserAdministration.xaml</DependentUpon>
+    </Compile>
     <Page Include="Billing.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -243,6 +235,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="UserAdministration.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -281,10 +277,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="HMDatabase.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="HMDatabase_log.ldf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <DependentUpon>HMDatabase.mdf</DependentUpon>
     </Content>
     <Content Include="MyDataModel.Context.tt">

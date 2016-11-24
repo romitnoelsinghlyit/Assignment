@@ -20,14 +20,6 @@
           <Property Name="AllergyTest" Type="int" />
           <Property Name="DischargeDate" Type="datetime" Nullable="false" />
         </EntityType>
-        <EntityType Name="Departments">
-          <Key>
-            <PropertyRef Name="DepartmentID" />
-          </Key>
-          <Property Name="DepartmentID" Type="nvarchar" MaxLength="36" Nullable="false" />
-          <Property Name="UserID" Type="nvarchar" MaxLength="36" Nullable="false" />
-          <Property Name="DepartmentName" Type="nvarchar" MaxLength="20" Nullable="false" />
-        </EntityType>
         <EntityType Name="Elective">
           <Key>
             <PropertyRef Name="ElectiveRecordID" />
@@ -159,18 +151,6 @@
             </Principal>
             <Dependent Role="Billing">
               <PropertyRef Name="PatientID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Departments_Users">
-          <End Role="Users" Type="Self.Users" Multiplicity="1" />
-          <End Role="Departments" Type="Self.Departments" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Users">
-              <PropertyRef Name="UserID" />
-            </Principal>
-            <Dependent Role="Departments">
-              <PropertyRef Name="UserID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -380,7 +360,6 @@
         </Association>
         <EntityContainer Name="HMDatabaseModelStoreContainer">
           <EntitySet Name="Billing" EntityType="Self.Billing" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Departments" EntityType="Self.Departments" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Elective" EntityType="Self.Elective" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Emergency" EntityType="Self.Emergency" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="GeneralWard" EntityType="Self.GeneralWard" Schema="dbo" store:Type="Tables" />
@@ -393,10 +372,6 @@
           <AssociationSet Name="FK_Billing_Patients" Association="Self.FK_Billing_Patients">
             <End Role="Patients" EntitySet="Patients" />
             <End Role="Billing" EntitySet="Billing" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Departments_Users" Association="Self.FK_Departments_Users">
-            <End Role="Users" EntitySet="Users" />
-            <End Role="Departments" EntitySet="Departments" />
           </AssociationSet>
           <AssociationSet Name="FK_Elective_Patients" Association="Self.FK_Elective_Patients">
             <End Role="Patients" EntitySet="Patients" />
@@ -486,15 +461,6 @@
           <Property Name="AllergyTest" Type="Int32" />
           <Property Name="DischargeDate" Type="DateTime" Nullable="false" Precision="3" />
           <NavigationProperty Name="Patient" Relationship="Self.FK_Billing_Patients" FromRole="Billing" ToRole="Patients" />
-        </EntityType>
-        <EntityType Name="Department">
-          <Key>
-            <PropertyRef Name="DepartmentID" />
-          </Key>
-          <Property Name="DepartmentID" Type="String" MaxLength="36" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="UserID" Type="String" MaxLength="36" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="DepartmentName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="User" Relationship="Self.FK_Departments_Users" FromRole="Departments" ToRole="Users" />
         </EntityType>
         <EntityType Name="Elective">
           <Key>
@@ -651,7 +617,6 @@
           <Property Name="Forename" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Surname" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="AccessLevel" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Departments" Relationship="Self.FK_Departments_Users" FromRole="Users" ToRole="Departments" />
           <Property Name="UserName" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="true" />
         </EntityType>
         <Association Name="FK_Billing_Patients">
@@ -663,18 +628,6 @@
             </Principal>
             <Dependent Role="Billing">
               <PropertyRef Name="PatientID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Departments_Users">
-          <End Role="Users" Type="Self.User" Multiplicity="1" />
-          <End Role="Departments" Type="Self.Department" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Users">
-              <PropertyRef Name="UserID" />
-            </Principal>
-            <Dependent Role="Departments">
-              <PropertyRef Name="UserID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -884,7 +837,6 @@
         </Association>
         <EntityContainer Name="HMDatabaseEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Billings" EntityType="Self.Billing" />
-          <EntitySet Name="Departments" EntityType="Self.Department" />
           <EntitySet Name="Electives" EntityType="Self.Elective" />
           <EntitySet Name="Emergencies" EntityType="Self.Emergency" />
           <EntitySet Name="GeneralWards" EntityType="Self.GeneralWard" />
@@ -897,10 +849,6 @@
           <AssociationSet Name="FK_Billing_Patients" Association="Self.FK_Billing_Patients">
             <End Role="Patients" EntitySet="Patients" />
             <End Role="Billing" EntitySet="Billings" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Departments_Users" Association="Self.FK_Departments_Users">
-            <End Role="Users" EntitySet="Users" />
-            <End Role="Departments" EntitySet="Departments" />
           </AssociationSet>
           <AssociationSet Name="FK_Elective_Patients" Association="Self.FK_Elective_Patients">
             <End Role="Patients" EntitySet="Patients" />
@@ -990,15 +938,6 @@
                 <ScalarProperty Name="SugarTest" ColumnName="SugarTest" />
                 <ScalarProperty Name="AllergyTest" ColumnName="AllergyTest" />
                 <ScalarProperty Name="DischargeDate" ColumnName="DischargeDate" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Departments">
-            <EntityTypeMapping TypeName="HMDatabaseModel.Department">
-              <MappingFragment StoreEntitySet="Departments">
-                <ScalarProperty Name="DepartmentID" ColumnName="DepartmentID" />
-                <ScalarProperty Name="UserID" ColumnName="UserID" />
-                <ScalarProperty Name="DepartmentName" ColumnName="DepartmentName" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
