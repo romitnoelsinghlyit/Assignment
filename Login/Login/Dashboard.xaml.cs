@@ -192,7 +192,7 @@ namespace Login
         {
             try
             {
-                var administration = new Administration();
+                var administration = new UserAdministration();
                 frmeMainFrame.Navigate(administration);
             }
             catch (Exception)
@@ -208,5 +208,9 @@ namespace Login
             Environment.Exit(0);
         }
 
+        private void frmeMainFrame_Navigated_1(object sender, System.Windows.Navigation.NavigationEventArgs e)
+        {
+
+        }
     }
 }

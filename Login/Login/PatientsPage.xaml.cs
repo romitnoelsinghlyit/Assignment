@@ -29,14 +29,5 @@ namespace Login
             InitializeComponent();
         }
          
-        private void btnCreate_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void cmbSex_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
-    }
+     }
 }
