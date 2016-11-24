@@ -5,109 +5,115 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Login"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="600"
-      Title="UserAdministration">
-
+      Height="400" Width="580">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="40*"/>
             <RowDefinition Height="60*"/>
         </Grid.RowDefinitions>
-
-        <ListView x:Name="lstUsersList"  Grid.Row="0" HorizontalAlignment="Left" Margin="10" VerticalAlignment="Top"  SelectionChanged="lstUsersList_SelectionChanged">
-            <ListView.View>
-                <GridView>
-                    <GridViewColumn Header="Forename" Width="100">
-                        <GridViewColumn.CellTemplate>
-                            <DataTemplate>
-                                <TextBlock TextWrapping="Wrap" HorizontalAlignment="Stretch" Text="{Binding Forename}"></TextBlock>
-                            </DataTemplate>
-                        </GridViewColumn.CellTemplate>
-                    </GridViewColumn>
-                    <GridViewColumn Header="Surname" Width="100">
-                        <GridViewColumn.CellTemplate>
-                            <DataTemplate>
-                                <TextBlock TextWrapping="Wrap" HorizontalAlignment="Stretch" Text="{Binding Surname}"></TextBlock>
-                            </DataTemplate>
-                        </GridViewColumn.CellTemplate>
-                    </GridViewColumn>
-                    <GridViewColumn Header="Username" Width="100">
-                        <GridViewColumn.CellTemplate>
-                            <DataTemplate>
-                                <TextBlock TextWrapping="Wrap" HorizontalAlignment="Stretch" Text="{Binding UserName}"></TextBlock>
-                            </DataTemplate>
-                        </GridViewColumn.CellTemplate>
-                    </GridViewColumn>
-                    <GridViewColumn Header="Password" Width="100" >
-                        <GridViewColumn.CellTemplate>
-                            <DataTemplate>
-                                <TextBlock TextWrapping="Wrap" HorizontalAlignment="Stretch" Text="{Binding Password}"></TextBlock>
-                            </DataTemplate>
-                        </GridViewColumn.CellTemplate>
-                    </GridViewColumn>
-                    <GridViewColumn Header="Access level" Width="100">
-                        <GridViewColumn.CellTemplate>
-                            <DataTemplate>
-                                <TextBlock TextWrapping="Wrap" HorizontalAlignment="Stretch" Text="{Binding AccessLevel}"></TextBlock>
-                            </DataTemplate>
-                        </GridViewColumn.CellTemplate>
-                    </GridViewColumn>
-                </GridView>
-            </ListView.View>
-        </ListView>
-        <DockPanel Grid.Row="1" Visibility="Collapsed">
-            <DockPanel Name="dockUserPanel">
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="16*" />
-                        <RowDefinition Height="16*" />
-                        <RowDefinition Height="16*" />
-                        <RowDefinition Height="16*" />
-                        <RowDefinition Height="16*" />
-                        <RowDefinition Height="16*" />
-                    </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="40*" />
-                        <ColumnDefinition Width="60*" />
-                    </Grid.ColumnDefinitions>
-
-                    <Label x:Name="lblForename" Content="Forename" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Right" Margin ="5" FontWeight="Bold" Height="25"/>
-                    <TextBox x:Name="tbxUserForename" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Left" Margin ="5" TextWrapping="Wrap" Width="150" Height="25"/>
-
-                    <Label x:Name="lblSurname" Content="Surname" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Right" Margin ="5" FontWeight="Bold" Height="25"/>
-                    <TextBox x:Name="tbxUserSurname" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" Margin ="5" TextWrapping="Wrap" Width="150" Height="25"/>
-
-                    <Label x:Name="lblUsername" Content="Username" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Right" Margin ="5" FontWeight="Bold" Height="25"/>
-                    <TextBox x:Name="tbxUsername" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left" Margin ="5" TextWrapping="Wrap" Width="150" Height="25"/>
-
-                    <Label x:Name="lblPassword" Content="Password" Grid.Row="3" Grid.Column="0" HorizontalAlignment="Right" Margin ="5" FontWeight="Bold" Height="25"/>
-                    <TextBox x:Name="tbxUserPassword" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Left" Margin ="5" TextWrapping="Wrap" Width="150" Height="25"/>
-
-                    <Label x:Name="lblAccessLevel" Content="Access Level" Grid.Row="4" Grid.Column="0" HorizontalAlignment="Right" Margin ="5" FontWeight="Bold" Height="25"/>
-
-                    <ComboBox x:Name="cboAccessLevel" HorizontalAlignment="Left"  Grid.Row="4" Grid.Column="1" Margin="5"  Width="150" Height="25" SelectionChanged="cmbAccessLevel_SelectionChanged">
-                        <ComboBoxItem IsSelected="True">1</ComboBoxItem>
-                        <ComboBoxItem>2</ComboBoxItem>
-                        <ComboBoxItem>3</ComboBoxItem>
-                    </ComboBox>
-
-                    <StackPanel Grid.Row="5" Grid.Column="1">
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="33*"/>
-                                <ColumnDefinition Width="33*"/>
-                                <ColumnDefinition Width="33*"/>
-                            </Grid.ColumnDefinitions>
-                            <Button x:Name="btnCancel" Content="Cancel" Width="75" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" Margin ="5"/>
-                            <Button x:Name="btnDelete" Content="Delete" Width="76" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" Margin ="5"/>
-                            <Button x:Name="btnUpdate" Content="Update" Width="75" Grid.Row="0" Grid.Column="2" HorizontalAlignment="Center" Margin ="5"/>
-                            <Button x:Name="btnAddUser" Content="+" Grid.Row="0" Grid.Column="2" Margin ="58,-395,32,407" FontWeight="Bold" FontSize="16" Click="btnAddUser_Click"/>
-
-                        </Grid>
-                    </StackPanel>
-                </Grid>
-            </DockPanel>
+        <DockPanel Grid.Row="0">
+            <ListView x:Name="lstUsersList" SelectionChanged="lstUsersList_SelectionChanged" HorizontalAlignment="Left" Margin="10" VerticalAlignment="Top">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn  Header="Forename" Width="100">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock TextWrapping="Wrap" HorizontalAlignment="Stretch" Text="{Binding Forename}"></TextBlock>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn  Header="Surname" Width="100">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock TextWrapping="Wrap" HorizontalAlignment="Stretch" Text="{Binding Surname}"></TextBlock>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn  Header="Username" Width="100">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock TextWrapping="Wrap" HorizontalAlignment="Stretch" Text="{Binding UserName}"></TextBlock>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn  Header="Password" Width="100" >
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock TextWrapping="Wrap" HorizontalAlignment="Stretch" Text="{Binding Password}"></TextBlock>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn  Header="Access level"  Width="100">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock TextWrapping="Wrap" HorizontalAlignment="Stretch" Text="{Binding AccessLevel}"></TextBlock>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+            <Button Width="30" VerticalAlignment="Top" Margin="0,10" Height="25" Content="+" FontSize="18" Name="btnAddUser" Click="btnAddUser_Click"></Button>
         </DockPanel>
 
+        <DockPanel Grid.Row="1" Name="dockUserPanel" >
+            <Grid Background="Transparent" >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="40*"/>
+                    <ColumnDefinition Width="60*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="16*" />
+                    <RowDefinition Height="16*" />
+                    <RowDefinition Height="16*" />
+                    <RowDefinition Height="16*" />
+                    <RowDefinition Height="16*" />
+                    <RowDefinition Height="16*" />
+                </Grid.RowDefinitions>
+                <Label Foreground="Black" Background="Transparent" Name="lblUsername" Grid.Row="2">Username</Label>
+                <Label Grid.Row="3" Foreground="Black" Background="Transparent" Name="lblPassword">Password</Label>
+                <Label Grid.Row="4" Foreground="Black" Name="lblUserAccess" >Access level</Label>
+                <TextBox Grid.Column="1" Foreground="Black" Background="Transparent" Height="26" HorizontalAlignment="Left" VerticalAlignment="Center" Width="200" IsEnabled="True"                      
+                     Name="tbxUsername" Grid.Row="2" Margin="0,2" />
+                <TextBox Grid.Column="1" Foreground="Black" Background="Transparent" Height="26" HorizontalAlignment="Left" VerticalAlignment="Center" Width="200"
+                     Grid.Row="3" 
+                     Name="tbxUserPassword" TabIndex="3" Margin="0,2" />
+                <ComboBox Grid.Column="1" Grid.Row="4" VerticalAlignment="Center" HorizontalAlignment="Left" Width="200"
+                      Name="cboAccessLevel" TabIndex="4" Height="28" Margin="0,1">
+                    <ComboBoxItem>Super Administrator</ComboBoxItem>
+                    <ComboBoxItem>Area administrator</ComboBoxItem>
+                </ComboBox>
+                <DockPanel Grid.Row="5" Grid.Column="1" Width="200" VerticalAlignment="Center" HorizontalAlignment="Left">
+                    <Button Grid.Column="1"
+                    Foreground="White"                  
+                    HorizontalAlignment="Left" 
+                    Name="btnCancel" 
+                    Click="btnCancel_Click" 
+                            Margin="3,0"
+                    Width="60" >Cancel</Button>
+
+                    <Button Grid.Column="1"                                                     
+                    Name="btnDelete" 
+                    Click="btnDelete_Click"
+                    Foreground="White" Background="Black" 
+                            Margin="3,0"
+                    Width="60" TabIndex="5">Delete</Button>
+
+                    <Button Grid.Column="1"                   
+                    HorizontalAlignment="Right"                   
+                    Name="btnUpdate" 
+                    Click="btnUpdate_Click"
+                    Foreground="White" Background="Black"                
+                    Width="60" TabIndex="5">Update</Button>
+                </DockPanel>
+                <Label Name="label1" Foreground="Black" Grid.Row="0">Forename</Label>
+                <TextBox Grid.Column="1" Height="26" HorizontalAlignment="Left" VerticalAlignment="Center" Width="200" Foreground="Black" Background="Transparent"  Name="tbxUserForename" TabIndex="1" Grid.Row="0" Margin="0,2" />
+                <Label Grid.Row="1" Foreground="Black" Background="Transparent" Name="label2">Surname</Label>
+                <TextBox Grid.Column="1" Height="26" HorizontalAlignment="Left" VerticalAlignment="Center" Width="200" Foreground="Black" Background="Transparent" 
+                   
+                     Grid.Row="1" 
+                    Name="tbxUserSurname" TabIndex="2" Margin="0,2" />
+            </Grid>
+        </DockPanel>
     </Grid>
 </Page>
