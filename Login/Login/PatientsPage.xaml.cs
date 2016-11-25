@@ -104,6 +104,8 @@ namespace Login
 
         private void btnSave_Click(object sender, RoutedEventArgs e)
         {
+            entityState = "Modify";
+
             currentPatient.Forename = tbxForename.Text.Trim();
             currentPatient.Surname = tbxSurname.Text.Trim();
             currentPatient.MaritalStatus = tbxMaritalStatus.Text.Trim();
@@ -114,6 +116,10 @@ namespace Login
             currentPatient.GP = tbxGP.Text.Trim();
 
             currentPatient.Sex = cmbSex.SelectedItem.ToString();
+
+            currentPatient.ArrivalDate = dtpArrivalDate.SelectedDate.Value;
+            currentPatient.DateOfBirth = dtpDateOfBirth.SelectedDate.Value ;
+
 
 
             bool patientVerified = mtdVerifyPatientDetails(currentPatient);
@@ -234,8 +240,8 @@ namespace Login
             currentPatient.AdmissionType = "Emergency";
             //currentEmergency.ArrivalDate = dtpArrivalDate.SelectedDate;
             //currentEmergency.DateOfBirth = dtpArrivalDate.SelectedDate;
-            currentEmergency.Forename = tbxForename.Text;
-            currentEmergency.Surname = tbxSurname.Text;
+            //currentEmergency.Forename = tbxForename.Text;
+            //currentEmergency.Surname = tbxSurname.Text;
 
 
 
@@ -251,8 +257,8 @@ namespace Login
             currentPatient.AdmissionType = "Elective";
             //currentElective.ArrivalDate = dtpArrivalDate.SelectedDate;
             //currentlective.DateOfBirth = dtpArrivalDate.SelectedDate;
-            currentElective.Forename = tbxForename.Text;
-            currentElective.Surname = tbxSurname.Text;
+            //currentElective.Forename = tbxForename.Text;
+            //currentElective.Surname = tbxSurname.Text;
         }
 
         private void rdoElective_Unchecked(object sender, RoutedEventArgs e)
