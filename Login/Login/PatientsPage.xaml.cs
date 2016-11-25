@@ -28,19 +28,19 @@ namespace Login
          
         public PatientsPage()
         {
-            //try
-            //{
-            //    InitializeComponent();
-            //    mtdPopulateUserTable();
+            try
+            {
+                InitializeComponent();
+                mtdPopulatePatientTable();
             //    lstPatientsList.ItemsSource = patientList;
-            //}
-            //catch (Exception)
-            //{
-            //    MessageBox.Show("Problem during initialisation of application");
-            //}
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Problem during initialisation of application");
+            }
         }
 
-        private void mtdPopulateUserTable()
+        private void mtdPopulatePatientTable()
         {
             patientList.Clear();
             foreach (var patient in dbEntities.Patients)
@@ -62,12 +62,12 @@ namespace Login
         //        {
         //            //Gets the patient from the patientList at the same position it is in within the ListView
         //            currentPatient = patientList.ElementAt(this.lstPatientsList.SelectedIndex);
-        //            mtdPopulateUserDetails(currentPatient);
+        //            mtdPopulatePatientDetails(currentPatient);
         //        }
         //    }
         //}
 
-        private void mtdPopulateUserDetails(Patient selectedPatient)
+        private void mtdPopulatePatientDetails(Patient selectedPatient)
         {
             try
             {
@@ -79,9 +79,6 @@ namespace Login
                 tbxReligion.Text = selectedPatient.Religion;
                 tbxInsurance.Text = selectedPatient.Insurance;
                 tbxMaritalStatus.Text = selectedPatient.MaritalStatus;
-                tbxInsurance.Text = selectedPatient.Insurance;
-                tbxReligion.Text = selectedPatient.Religion;
-                tbxInsurance.Text = selectedPatient.Insurance;
                 tbxOccupation.Text = selectedPatient.Occupation;
                 tbxAddress.Text = selectedPatient.Address;
                 tbxGP.Text = selectedPatient.GP;
@@ -131,24 +128,32 @@ namespace Login
 
         private void btnUpdate_Click(object sender, RoutedEventArgs e)
         {
-            currentPatient.Forename = tbxUserForename.Text.Trim();
-            currentPatient.Surname = tbxPatientsurname.Text.Trim();
-            currentPatient.Password = tbxUserPassword.Text.Trim();
-            currentPatient.UserName = tbxUsername.Text.Trim();
-            currentPatient.AccessLevel = cboAccessLevel.SelectedIndex;
-            bool userVerified = mtdVerifyUserDetails(currentPatient);
-            if (userVerified)
+            currentPatient.Forename = tbxForename.Text.Trim();
+            currentPatient.Surname = tbxSurname.Text.Trim();
+            currentPatient.MaritalStatus = tbxMaritalStatus.Text.Trim();
+            currentPatient.Insurance = tbxInsurance.Text.Trim();
+            currentPatient.Occupation = tbxOccupation.Text.Trim();
+            currentPatient.Religion = tbxReligion.Text.Trim();
+            currentPatient.Address = tbxAddress.Text.Trim();
+            currentPatient.GP = tbxGP.Text.Trim();
+
+
+
+
+
+
+            currentPatient.Occupation = cboAccessLevel.SelectedIndex;
+            bool patientVerified = mtdVerifyPatientDetails(currentPatient);
+            if (patientVerified)
             {
-                mtdUpdateUser(currentPatient, entityState);
-                mtdPopulateUserTable();
-                lstPatientsList.Items.Refresh();
-            }
-            dockUserPanel.Visibility = Visibility.Collapsed;
+                mtdUpdatePatient(currentPatient, entityState);
+                mtdPopulatePatientTable();               
+            }           
         }
 
-        private bool mtdVerifyUserDetails(Patient patient)
+        private bool mtdVerifyPatientDetails(Patient patient)
         {
-            bool userVerified = false;
+            bool patientVerified = false;
             try
             {
                 if (patient.Forename == null)
@@ -159,34 +164,26 @@ namespace Login
                 {
                     patient.Surname = "";
                 }
-                if (patient.UserName == null)
+                if (patient.PatientID == null)
                 {
-                    patient.UserName = "";
+                    patient.PatientID = "";
                 }
-                if (patient.Password == null)
-                {
-                    patient.Password = "";
-                }
-                if (patient.AccessLevel == -1)
-                {
-                    patient.AccessLevel = 2;
-                }
-                userVerified = true;
+               patientVerified = true;
             }
             catch (Exception)
             {
                 MessageBox.Show("Problem verifying patient");
             }
-            return userVerified;
+            return patientVerified;
         }
 
-        private void mtdUpdateUser(Patient patient, string modifyState)
+        private void mtdUpdatePatient(Patient patient, string modifyState)
         {
             try
             {
                 if (modifyState == "Add")
                 {
-                    patient.UserID = Guid.NewGuid().ToString();//Create new UsedID for database                 
+                    patient.PatientID = Guid.NewGuid().ToString();//Create new UsedID for database                 
                     dbEntities.Configuration.AutoDetectChangesEnabled = false;
                     dbEntities.Configuration.ValidateOnSaveEnabled = false;
                     dbEntities.Entry(patient).State = System.Data.Entity.EntityState.Added;
@@ -194,7 +191,7 @@ namespace Login
                 }
                 if (modifyState == "Modify")
                 {
-                    foreach (var userRecord in dbEntities.Patients.Where(t => t.UserID == patient.UserID))
+                    foreach (var userRecord in dbEntities.Patients.Where(t => t.PatientID == patient.PatientID))
                     {
                         userRecord.Forename = patient.Forename;
                         userRecord.Surname = patient.Surname;
@@ -220,13 +217,15 @@ namespace Login
             }
         }
 
-        private void btnAddUser_Click(object sender, RoutedEventArgs e)
-        {
-            mtdClearUserDetails();
-            entityState = "Add";
-        }
 
-        private void mtdClearUserDetails()
+
+        private void btnCreate_Click(object sender, RoutedEventArgs e)
+        {
+            mtdClearPatientDetails();
+            entityState = "Add"; 
+        } 
+
+        private void mtdClearPatientDetails()
         {
             tbxUserForename.Text = "";
             tbxPatientsurname.Text = "";
@@ -238,10 +237,10 @@ namespace Login
         private void btnDelete_Click(object sender, RoutedEventArgs e)
         {
             entityState = "Delete";
-            mtdUpdateUser(currentPatient, entityState);
-            mtdPopulateUserTable();
+            mtdUpdatePatient(currentPatient, entityState);
+            mtdPopulatePatientTable();
             lstPatientsList.Items.Refresh();
             dockUserPanel.Visibility = Visibility.Collapsed;
-        }
+        }       
     }
 }
