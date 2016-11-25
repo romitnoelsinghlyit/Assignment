@@ -36,26 +36,13 @@
                         <ColumnDefinition Width="20*" />
                         <ColumnDefinition Width="20*" />
                     </Grid.ColumnDefinitions>
-                    <Button x:Name="btnCreate" Content="Create" Width="75" Grid.Column="0" HorizontalAlignment="Center" Click="btnCreate_Click" Margin="5"/>
-                    <Button x:Name="btnSearch" Content="Search" Width="75" Grid.Column="1" HorizontalAlignment="Center" Margin ="5" Click="btnSearch_Click"/>
+                <Button x:Name="btnCreate" Content="Create" Width="75" Grid.Column="0" HorizontalAlignment="Center" Click="btnCreate_Click" Margin="5" Height="25" />
+                <Button x:Name="btnModify" Content="Modify" Width="75" Grid.Column="1" HorizontalAlignment="Center" Margin ="5" Height="25" Click="btnModify_Click"/>
 
-                    <Label x:Name="lblSearch" Content="Enter Patient ID" Grid.Row="0" Grid.Column="2" HorizontalAlignment="Center" Margin ="5" FontWeight="Bold"  Height="25"/>
-                    <StackPanel Grid.Row="0" Grid.Column="3">
-                        <StackPanel Orientation="Horizontal" Margin="12" >
-                            <Grid>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="50*"/>
-                                    <ColumnDefinition Width="50*"/>
-                                </Grid.ColumnDefinitions>
-
-
-                                <TextBox x:Name="tbxPatientSearch" Grid.Column="0" HorizontalAlignment="Left" Margin ="-337,11,0,-1" TextWrapping="Wrap" Width="150" Height="25" Text="Enter Patient ID" VerticalAlignment="Top"/>
-
-                            </Grid>
-                        </StackPanel>
-                    </StackPanel>
-
-                </Grid>            
+                    <Label x:Name="lblSearch" Content="Enter Patient ID" Grid.Column="2" HorizontalAlignment="Center" Margin ="5" FontWeight="Bold"  Height="25"/>
+                    <TextBox x:Name="tbxPatientSearch" Grid.Column="3" HorizontalAlignment="Left" Margin ="5" TextWrapping="Wrap" Width="150" Height="25" Text="Enter Patient ID"/>
+                <Button x:Name="btnSearch" Content="Search" Width="75" Grid.Column="4" HorizontalAlignment="Center" Margin ="5" Click="btnSearch_Click" Height="25" />
+           </Grid>            
         </DockPanel>
         <DockPanel Grid.Row="2" Name="dockPatientDetails">
            <Grid>
@@ -83,7 +70,7 @@
                     <DatePicker x:Name="dtpDateOfBirth" HorizontalAlignment="Left"  Grid.Row="1" Grid.Column="1" Margin="5"  Width="150" Height="25"/>
 
                     <Label x:Name="lblSex" Content="Sex" Grid.Row="1" Grid.Column="2" HorizontalAlignment="Right" Margin ="5" FontWeight="Bold" Height="25"/>
-                    <ComboBox x:Name="cmbSex" HorizontalAlignment="Left"  Grid.Row="1" Grid.Column="3" Margin="5"  Width="150" Height="25">
+                    <ComboBox x:Name="cmbSex" HorizontalAlignment="Left"  Grid.Row="1" Grid.Column="3" Margin="5"  Width="150" Height="25" SelectionChanged="cmbSex_SelectionChanged">
                         <ComboBoxItem>Male</ComboBoxItem>
                         <ComboBoxItem IsSelected="True">Female</ComboBoxItem>
                     </ComboBox>

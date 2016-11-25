@@ -26,15 +26,14 @@ namespace Login
         Emergency currentEmergency = new Emergency();
         Elective currentElective = new Elective();
         string entityState = "Modify";
-        dockPatientDetails.Visibility
+
 
         public PatientsPage()
         {
             try
             {
                 InitializeComponent();
-                int patientCount = dbEntities.Patients.Count() + 1;
-                tbxPatientNumber.Text = patientCount.ToString();
+                mtdClearPatientDetails();                
             }
             catch (Exception)
             {
@@ -42,13 +41,44 @@ namespace Login
             }
         }
 
-        
-     
-   
+        private void mtdClearPatientDetails()
+        {
+            tbxForename.Text = "";
+            tbxSurname.Text = "";
+            tbxMaritalStatus.Text = "";
+            tbxInsurance.Text = "";
+            tbxOccupation.Text = "";
+            tbxReligion.Text = "";
+            tbxAddress.Text = "";
+            tbxGP.Text = "";
+            cmbSex.SelectedIndex = 1;
+        }
+
+        private void btnCreate_Click(object sender, RoutedEventArgs e)
+        {
+            Patient patient = new Patient();
+            int patientCount = dbEntities.Patients.Count() + 1;
+            tbxPatientNumber.Text = patientCount.ToString();
+            entityState = "Add";
+            patient.PatientNumber = Convert.ToInt16(tbxPatientNumber.Text);
+        }
+
+        private void btnModify_Click(object sender, RoutedEventArgs e)
+        {
+           
+        }
+
 
         private void btnSave_Click(object sender, RoutedEventArgs e)
         {
-            entityState = "Modify";
+            //entityState = "Modify";
+
+            bool patientVerified = mtdVerifyPatientDetails(currentPatient);
+            if (patientVerified)
+            {
+                mtdUpdatePatient(currentPatient, entityState);
+            }
+
 
             currentPatient.Forename = tbxForename.Text.Trim();
             currentPatient.Surname = tbxSurname.Text.Trim();
@@ -63,15 +93,9 @@ namespace Login
 
             currentPatient.ArrivalDate = dtpArrivalDate.SelectedDate.Value;
             currentPatient.DateOfBirth = dtpDateOfBirth.SelectedDate.Value ;
-            currentPatient.PatientNumber = Convert.ToInt16( tbxPatientNumber.Text);
-            
-            
+            currentPatient.PatientNumber = Convert.ToInt16( tbxPatientNumber.Text);             
 
-            bool patientVerified = mtdVerifyPatientDetails(currentPatient);
-            if (patientVerified)
-            {
-                mtdUpdatePatient(currentPatient, entityState);                              
-            }           
+                      
         }
 
         private bool mtdVerifyPatientDetails(Patient patient)
@@ -154,30 +178,9 @@ namespace Login
 
 
 
-        private void btnCreate_Click(object sender, RoutedEventArgs e)
-        {
-            Patient patient = new Patient();
-            mtdClearPatientDetails();
-            entityState = "Add";
-            patient.PatientNumber = Convert.ToInt16( tbxPatientNumber.Text);
+        
 
-            
-            
-        } 
-
-        private void mtdClearPatientDetails()
-        {
-            tbxForename.Text = "";
-            tbxSurname.Text = "";
-            tbxMaritalStatus.Text = "";
-            tbxInsurance.Text = "";
-            tbxOccupation.Text = "";
-            tbxReligion.Text = "";
-            tbxAddress.Text = "";
-            tbxGP.Text = "";
-
-            cmbSex.SelectedIndex = 1;
-        }
+       
 
         private void btnDelete_Click(object sender, RoutedEventArgs e)
         {
@@ -245,6 +248,11 @@ namespace Login
         {
             int searchPatientNumber = Convert.ToInt16( tbxPatientNumber.Text);
             Patient patient = new Patient();
+        }
+
+        private void cmbSex_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }

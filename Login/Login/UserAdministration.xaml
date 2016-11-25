@@ -107,7 +107,7 @@
                     Width="60" TabIndex="5">Update</Button>
                 </DockPanel>
                 <Label Name="label1" Foreground="Black" Grid.Row="0">Forename</Label>
-                <TextBox Grid.Column="1" Height="26" HorizontalAlignment="Left" VerticalAlignment="Center" Width="200" Foreground="Black" Background="Transparent"  Name="tbxUserForename" TabIndex="1" Grid.Row="0" Margin="0,2" />
+                <TextBox Grid.Column="1" Height="26" HorizontalAlignment="Right" VerticalAlignment="Center" Width="200" Foreground="Black" Background="Transparent"  Name="tbxUserForename" TabIndex="1" Grid.Row="0" Margin="0,7,148,7" />
                 <Label Grid.Row="1" Foreground="Black" Background="Transparent" Name="label2">Surname</Label>
                 <TextBox Grid.Column="1" Height="26" HorizontalAlignment="Left" VerticalAlignment="Center" Width="200" Foreground="Black" Background="Transparent" 
                    
