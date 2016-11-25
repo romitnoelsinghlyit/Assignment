@@ -22,8 +22,9 @@ namespace Login
     {
 
         HMDatabaseEntities dbEntities = new HMDatabaseEntities();
-        List<Patient> patientList = new List<Patient>();
         Patient currentPatient = new Patient();
+        Emergency currentEmergency = new Emergency();
+        Elective currentElective = new Elective();
         string entityState = "Modify";
          
         public PatientsPage()
@@ -31,8 +32,6 @@ namespace Login
             try
             {
                 InitializeComponent();
-                mtdPopulatePatientTable();
-            //    lstPatientsList.ItemsSource = patientList;
             }
             catch (Exception)
             {
@@ -40,33 +39,8 @@ namespace Login
             }
         }
 
-        private void mtdPopulatePatientTable()
-        {
-            patientList.Clear();
-            foreach (var patient in dbEntities.Patients)
-            {
-                patientList.Add(patient);
-            }
-        }
-
-        private void btnCancel_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        //private void lstPatientsList_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        //{
-        //    if (patientList.Count > 0)//Make sure a patient record exists in the database
-        //    {
-        //        if (lstPatientsList.SelectedIndex > -1)//ensures a record is selected
-        //        {
-        //            //Gets the patient from the patientList at the same position it is in within the ListView
-        //            currentPatient = patientList.ElementAt(this.lstPatientsList.SelectedIndex);
-        //            mtdPopulatePatientDetails(currentPatient);
-        //        }
-        //    }
-        //}
-
+        
+     
         private void mtdPopulatePatientDetails(Patient selectedPatient)
         {
             try
@@ -82,6 +56,8 @@ namespace Login
                 tbxOccupation.Text = selectedPatient.Occupation;
                 tbxAddress.Text = selectedPatient.Address;
                 tbxGP.Text = selectedPatient.GP;
+
+                cmbSex.SelectedItem = selectedPatient.Sex;
 
                 // ADMISSION TYPE
                 if (rdoEmergency.IsChecked == true)
@@ -126,7 +102,7 @@ namespace Login
 
         }
 
-        private void btnUpdate_Click(object sender, RoutedEventArgs e)
+        private void btnSave_Click(object sender, RoutedEventArgs e)
         {
             currentPatient.Forename = tbxForename.Text.Trim();
             currentPatient.Surname = tbxSurname.Text.Trim();
@@ -137,17 +113,13 @@ namespace Login
             currentPatient.Address = tbxAddress.Text.Trim();
             currentPatient.GP = tbxGP.Text.Trim();
 
+            currentPatient.Sex = cmbSex.SelectedItem.ToString();
 
 
-
-
-
-            currentPatient.Occupation = cboAccessLevel.SelectedIndex;
             bool patientVerified = mtdVerifyPatientDetails(currentPatient);
             if (patientVerified)
             {
-                mtdUpdatePatient(currentPatient, entityState);
-                mtdPopulatePatientTable();               
+                mtdUpdatePatient(currentPatient, entityState);                              
             }           
         }
 
@@ -183,7 +155,7 @@ namespace Login
             {
                 if (modifyState == "Add")
                 {
-                    patient.PatientID = Guid.NewGuid().ToString();//Create new UsedID for database                 
+                    patient.PatientID = Guid.NewGuid().ToString();                 
                     dbEntities.Configuration.AutoDetectChangesEnabled = false;
                     dbEntities.Configuration.ValidateOnSaveEnabled = false;
                     dbEntities.Entry(patient).State = System.Data.Entity.EntityState.Added;
@@ -195,16 +167,28 @@ namespace Login
                     {
                         userRecord.Forename = patient.Forename;
                         userRecord.Surname = patient.Surname;
-                        userRecord.UserName = patient.UserName;
-                        userRecord.Password = patient.Password;
-                        userRecord.AccessLevel = patient.AccessLevel;
+                        userRecord.Religion = patient.Religion;
+                        userRecord.MaritalStatus = patient.MaritalStatus;
+                        userRecord.Insurance = patient.Insurance;
+                        userRecord.Occupation = patient.Occupation;
+                        userRecord.Address = patient.Address;
+                        userRecord.GP = patient.GP;
+
+                        userRecord.Sex = patient.Sex;
+
+                        userRecord.ArrivalDate = patient.ArrivalDate;
+                        userRecord.DateOfBirth = patient.DateOfBirth;
+
+                        userRecord.AdmissionType = patient.AdmissionType;
+                        userRecord.Category = patient.Category;
+
                         MessageBox.Show("Patient modified");
                     }
                 }
                 if (modifyState == "Delete")
                 {
                     dbEntities.Patients.RemoveRange(
-                 dbEntities.Patients.Where(t => t.UserID == patient.UserID));
+                 dbEntities.Patients.Where(t => t.PatientID == patient.PatientID));
                     MessageBox.Show("Patient deleted");
                 }
                 dbEntities.SaveChanges();
@@ -243,7 +227,63 @@ namespace Login
         {
             entityState = "Delete";
             mtdUpdatePatient(currentPatient, entityState);
-            mtdPopulatePatientTable();
-        }       
+        }
+
+        private void rdoEmergency_Checked(object sender, RoutedEventArgs e)
+        {
+            currentPatient.AdmissionType = "Emergency";
+            //currentEmergency.ArrivalDate = dtpArrivalDate.SelectedDate;
+            //currentEmergency.DateOfBirth = dtpArrivalDate.SelectedDate;
+            currentEmergency.Forename = tbxForename.Text;
+            currentEmergency.Surname = tbxSurname.Text;
+
+
+
+        }
+
+        private void rdoEmergency_Unchecked(object sender, RoutedEventArgs e)
+        {
+            rdoElective.IsChecked = true;
+        }
+
+        private void rdoElective_Checked(object sender, RoutedEventArgs e)
+        {
+            currentPatient.AdmissionType = "Elective";
+            //currentElective.ArrivalDate = dtpArrivalDate.SelectedDate;
+            //currentlective.DateOfBirth = dtpArrivalDate.SelectedDate;
+            currentElective.Forename = tbxForename.Text;
+            currentElective.Surname = tbxSurname.Text;
+        }
+
+        private void rdoElective_Unchecked(object sender, RoutedEventArgs e)
+        {
+            rdoEmergency.IsChecked = true;
+        }
+
+        private void rdoGeneral_Checked(object sender, RoutedEventArgs e)
+        {
+            currentPatient.Category = "General";
+        }
+
+        private void rdoSurgery_Checked(object sender, RoutedEventArgs e)
+        {
+            currentPatient.Category = "Surgery";
+        }
+
+        private void rdoICU_Checked(object sender, RoutedEventArgs e)
+        {
+            currentPatient.Category = "ICU";
+        }
+
+        private void rdoOrthopaedic_Checked(object sender, RoutedEventArgs e)
+        {
+            currentPatient.Category = "Orthopaedic";
+        }
+
+        private void rdoPaediatric_Checked(object sender, RoutedEventArgs e)
+        {
+            currentPatient.Category = "Paediatric";
+        }
+
     }
 }
