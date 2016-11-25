@@ -115,11 +115,14 @@
                     <Label x:Name="lblMaritalStatus" Content="Marital Status" Grid.Row="2" Grid.Column="2" HorizontalAlignment="Right" Margin ="5" FontWeight="Bold" Height="25"/>
                     <TextBox x:Name="tbxMaritalStatus" Grid.Row="2" Grid.Column="3" HorizontalAlignment="Left" Margin ="5" TextWrapping="Wrap" Width="150" Height="25"/>
 
-                    <Label x:Name="lblOccupation" Content="Occupation" HorizontalAlignment="Left" Margin="35,276,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-                    <TextBox x:Name="tbxOccupation" HorizontalAlignment="Left" Height="23" Margin="180,276,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="144"/>
-
                     <Label x:Name="lblReligion" Content="Religion" Grid.Row="3" Grid.Column="0" HorizontalAlignment="Right" Margin ="5" FontWeight="Bold" Height="25"/>
                     <TextBox x:Name="tbxReligion" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Left" Margin ="5" TextWrapping="Wrap" Width="150" Height="25"/>
+
+                    <Label x:Name="lblOccupation" Content="Occupation" Grid.Row="3" Grid.Column="2" HorizontalAlignment="Right" Margin ="5"  VerticalAlignment="Top" FontWeight="Bold"/>
+                    <TextBox x:Name="tbxOccupation" Grid.Row="3" Grid.Column="3" HorizontalAlignment="Left" Margin ="5"  Height="25" TextWrapping="Wrap" VerticalAlignment="Top" Width="150"/>
+
+
+
 
                     <Label x:Name="lblInsurance" Content="Insurance" Grid.Row="4" Grid.Column="0" HorizontalAlignment="Right" Margin ="5" FontWeight="Bold" Height="25"/>
                     <TextBox x:Name="tbxInsurance" Grid.Row="4" Grid.Column="1" HorizontalAlignment="Left" Margin ="5" TextWrapping="Wrap" Width="150" Height="25"/>
