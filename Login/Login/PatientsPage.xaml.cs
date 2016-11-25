@@ -227,11 +227,16 @@ namespace Login
 
         private void mtdClearPatientDetails()
         {
-            tbxUserForename.Text = "";
-            tbxPatientsurname.Text = "";
-            tbxUsername.Text = "";
-            tbxUserPassword.Text = "";
-            cboAccessLevel.SelectedIndex = 0;
+            tbxForename.Text = "";
+            tbxSurname.Text = "";
+            tbxMaritalStatus.Text = "";
+            tbxInsurance.Text = "";
+            tbxOccupation.Text = "";
+            tbxReligion.Text = "";
+            tbxAddress.Text = "";
+            tbxGP.Text = "";
+
+            cmbSex.SelectedIndex = 1;
         }
 
         private void btnDelete_Click(object sender, RoutedEventArgs e)
@@ -239,8 +244,6 @@ namespace Login
             entityState = "Delete";
             mtdUpdatePatient(currentPatient, entityState);
             mtdPopulatePatientTable();
-            lstPatientsList.Items.Refresh();
-            dockUserPanel.Visibility = Visibility.Collapsed;
         }       
     }
 }
