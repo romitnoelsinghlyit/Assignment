@@ -32,8 +32,8 @@ namespace Login
         public virtual DbSet<ICU> ICUs { get; set; }
         public virtual DbSet<OrthopaedicWard> OrthopaedicWards { get; set; }
         public virtual DbSet<PaediatricWard> PaediatricWards { get; set; }
-        public virtual DbSet<Patient> Patients { get; set; }
         public virtual DbSet<SurgicalWard> SurgicalWards { get; set; }
         public virtual DbSet<User> Users { get; set; }
+        public virtual DbSet<Patient> Patients { get; set; }
     }
 }

@@ -24,6 +24,7 @@ namespace Login
         List<User> userList = new List<User>();
         User currentUser = new User();
         string entityState = "Modify";
+        
 
         public UserAdministration()
         {

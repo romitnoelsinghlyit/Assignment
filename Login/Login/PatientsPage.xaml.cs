@@ -26,12 +26,15 @@ namespace Login
         Emergency currentEmergency = new Emergency();
         Elective currentElective = new Elective();
         string entityState = "Modify";
-         
+        dockPatientDetails.Visibility
+
         public PatientsPage()
         {
             try
             {
                 InitializeComponent();
+                int patientCount = dbEntities.Patients.Count() + 1;
+                tbxPatientNumber.Text = patientCount.ToString();
             }
             catch (Exception)
             {
@@ -41,66 +44,7 @@ namespace Login
 
         
      
-        private void mtdPopulatePatientDetails(Patient selectedPatient)
-        {
-            try
-            {
-                dtpArrivalDate.SelectedDate = selectedPatient.ArrivalDate;
-                dtpDateOfBirth.SelectedDate = selectedPatient.DateOfBirth;
-
-                tbxForename.Text = selectedPatient.Forename;
-                tbxSurname.Text = selectedPatient.Surname;
-                tbxReligion.Text = selectedPatient.Religion;
-                tbxInsurance.Text = selectedPatient.Insurance;
-                tbxMaritalStatus.Text = selectedPatient.MaritalStatus;
-                tbxOccupation.Text = selectedPatient.Occupation;
-                tbxAddress.Text = selectedPatient.Address;
-                tbxGP.Text = selectedPatient.GP;
-
-                cmbSex.SelectedItem = selectedPatient.Sex;
-
-                // ADMISSION TYPE
-                if (rdoEmergency.IsChecked == true)
-                {
-                    selectedPatient.AdmissionType = "Emergency";
-                }
-                if (rdoElective.IsChecked == true)
-                {
-                    selectedPatient.AdmissionType = "Elective";
-                }
-
-                // CATEGORY
-                if (rdoGeneral.IsChecked == true)
-                {
-                    selectedPatient.Category = "General";
-                }
-
-                if (rdoICU.IsChecked == true)
-                {
-                    selectedPatient.Category = "ICU";
-                }
-
-                if (rdoSurgery.IsChecked == true)
-                {
-                    selectedPatient.Category = "Surgery";
-                }
-
-                if (rdoOrthopaedic.IsChecked == true)
-                {
-                    selectedPatient.Category = "Orthopaedic";
-                }
-                if (rdoPaediatric.IsChecked == true)
-                {
-                    selectedPatient.Category = "Paediatric";
-                }
-
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("Problem importing patient information");
-            }
-
-        }
+   
 
         private void btnSave_Click(object sender, RoutedEventArgs e)
         {
@@ -114,13 +58,14 @@ namespace Login
             currentPatient.Religion = tbxReligion.Text.Trim();
             currentPatient.Address = tbxAddress.Text.Trim();
             currentPatient.GP = tbxGP.Text.Trim();
-
+            currentPatient.PatientNumber = Convert.ToInt16(tbxPatientNumber.Text.Trim());
             currentPatient.Sex = cmbSex.SelectedItem.ToString();
 
             currentPatient.ArrivalDate = dtpArrivalDate.SelectedDate.Value;
             currentPatient.DateOfBirth = dtpDateOfBirth.SelectedDate.Value ;
-
-
+            currentPatient.PatientNumber = Convert.ToInt16( tbxPatientNumber.Text);
+            
+            
 
             bool patientVerified = mtdVerifyPatientDetails(currentPatient);
             if (patientVerified)
@@ -211,8 +156,13 @@ namespace Login
 
         private void btnCreate_Click(object sender, RoutedEventArgs e)
         {
+            Patient patient = new Patient();
             mtdClearPatientDetails();
-            entityState = "Add"; 
+            entityState = "Add";
+            patient.PatientNumber = Convert.ToInt16( tbxPatientNumber.Text);
+
+            
+            
         } 
 
         private void mtdClearPatientDetails()
@@ -291,5 +241,10 @@ namespace Login
             currentPatient.Category = "Paediatric";
         }
 
+        private void btnSearch_Click(object sender, RoutedEventArgs e)
+        {
+            int searchPatientNumber = Convert.ToInt16( tbxPatientNumber.Text);
+            Patient patient = new Patient();
+        }
     }
 }

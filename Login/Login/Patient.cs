@@ -28,6 +28,7 @@ namespace Login
         }
     
         public string PatientID { get; set; }
+        public int PatientNumber { get; set; }
         public System.DateTime ArrivalDate { get; set; }
         public string Forename { get; set; }
         public string Surname { get; set; }

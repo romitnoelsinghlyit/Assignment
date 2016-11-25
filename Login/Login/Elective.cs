@@ -32,7 +32,6 @@ namespace Login
         public System.DateTime DateOfBirth { get; set; }
         public string Consultant { get; set; }
     
-        public virtual Patient Patient { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<GeneralWard> GeneralWards { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
@@ -43,5 +42,6 @@ namespace Login
         public virtual ICollection<PaediatricWard> PaediatricWards { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<SurgicalWard> SurgicalWards { get; set; }
+        public virtual Patient Patient { get; set; }
     }
 }

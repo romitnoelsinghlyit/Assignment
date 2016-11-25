@@ -101,6 +101,7 @@
             <PropertyRef Name="PatientID" />
           </Key>
           <Property Name="PatientID" Type="nvarchar" MaxLength="36" Nullable="false" />
+          <Property Name="PatientNumber" Type="int" Nullable="false" />
           <Property Name="ArrivalDate" Type="datetime" Nullable="false" />
           <Property Name="Forename" Type="nvarchar" MaxLength="30" Nullable="false" />
           <Property Name="Surname" Type="nvarchar" MaxLength="30" Nullable="false" />
@@ -460,7 +461,7 @@
           <Property Name="SugarTest" Type="Int32" />
           <Property Name="AllergyTest" Type="Int32" />
           <Property Name="DischargeDate" Type="DateTime" Nullable="false" Precision="3" />
-          <NavigationProperty Name="Patient" Relationship="Self.FK_Billing_Patients" FromRole="Billing" ToRole="Patients" />
+          <NavigationProperty Name="Patient" Relationship="HMDatabaseModel.FK_Billing_Patients" FromRole="Billing" ToRole="Patient" />
         </EntityType>
         <EntityType Name="Elective">
           <Key>
@@ -473,12 +474,12 @@
           <Property Name="Surname" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="DateOfBirth" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="Consultant" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Patient" Relationship="Self.FK_Elective_Patients" FromRole="Elective" ToRole="Patients" />
           <NavigationProperty Name="GeneralWards" Relationship="Self.FK_GeneralWard_Elective" FromRole="Elective" ToRole="GeneralWard" />
           <NavigationProperty Name="ICUs" Relationship="Self.FK_ICU_Elective" FromRole="Elective" ToRole="ICU" />
           <NavigationProperty Name="OrthopaedicWards" Relationship="Self.FK_OrthopaedicWard_Elective" FromRole="Elective" ToRole="OrthopaedicWard" />
           <NavigationProperty Name="PaediatricWards" Relationship="Self.FK_PaediatricWard_Elective" FromRole="Elective" ToRole="PaediatricWard" />
           <NavigationProperty Name="SurgicalWards" Relationship="Self.FK_SurgicalWard_Elective" FromRole="Elective" ToRole="SurgicalWard" />
+          <NavigationProperty Name="Patient" Relationship="HMDatabaseModel.FK_Elective_Patients" FromRole="Elective" ToRole="Patient" />
         </EntityType>
         <EntityType Name="Emergency">
           <Key>
@@ -491,12 +492,12 @@
           <Property Name="Surname" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="DateOfBirth" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="Consultant" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Patient" Relationship="Self.FK_Emergency_Patients" FromRole="Emergency" ToRole="Patients" />
           <NavigationProperty Name="GeneralWards" Relationship="Self.FK_GeneralWard_Emergency" FromRole="Emergency" ToRole="GeneralWard" />
           <NavigationProperty Name="ICUs" Relationship="Self.FK_ICU_Emergency" FromRole="Emergency" ToRole="ICU" />
           <NavigationProperty Name="OrthopaedicWards" Relationship="Self.FK_OrthopaedicWard_Emergency" FromRole="Emergency" ToRole="OrthopaedicWard" />
           <NavigationProperty Name="PaediatricWards" Relationship="Self.FK_PaediatricWard_Emergency" FromRole="Emergency" ToRole="PaediatricWard" />
           <NavigationProperty Name="SurgicalWards" Relationship="Self.FK_SurgicalWard_Emergency" FromRole="Emergency" ToRole="SurgicalWard" />
+          <NavigationProperty Name="Patient" Relationship="HMDatabaseModel.FK_Emergency_Patients" FromRole="Emergency" ToRole="Patient" />
         </EntityType>
         <EntityType Name="GeneralWard">
           <Key>
@@ -512,7 +513,7 @@
           <Property Name="Consultant" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Elective" Relationship="Self.FK_GeneralWard_Elective" FromRole="GeneralWard" ToRole="Elective" />
           <NavigationProperty Name="Emergency" Relationship="Self.FK_GeneralWard_Emergency" FromRole="GeneralWard" ToRole="Emergency" />
-          <NavigationProperty Name="Patient" Relationship="Self.FK_GeneralWard_Patients" FromRole="GeneralWard" ToRole="Patients" />
+          <NavigationProperty Name="Patient" Relationship="HMDatabaseModel.FK_GeneralWard_Patients" FromRole="GeneralWard" ToRole="Patient" />
         </EntityType>
         <EntityType Name="ICU">
           <Key>
@@ -528,7 +529,7 @@
           <Property Name="Consultant" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Elective" Relationship="Self.FK_ICU_Elective" FromRole="ICU" ToRole="Elective" />
           <NavigationProperty Name="Emergency" Relationship="Self.FK_ICU_Emergency" FromRole="ICU" ToRole="Emergency" />
-          <NavigationProperty Name="Patient" Relationship="Self.FK_ICU_Patients" FromRole="ICU" ToRole="Patients" />
+          <NavigationProperty Name="Patient" Relationship="HMDatabaseModel.FK_ICU_Patients" FromRole="ICU" ToRole="Patient" />
         </EntityType>
         <EntityType Name="OrthopaedicWard">
           <Key>
@@ -544,7 +545,7 @@
           <Property Name="Consultant" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Elective" Relationship="Self.FK_OrthopaedicWard_Elective" FromRole="OrthopaedicWard" ToRole="Elective" />
           <NavigationProperty Name="Emergency" Relationship="Self.FK_OrthopaedicWard_Emergency" FromRole="OrthopaedicWard" ToRole="Emergency" />
-          <NavigationProperty Name="Patient" Relationship="Self.FK_OrthopaedicWard_Patients" FromRole="OrthopaedicWard" ToRole="Patients" />
+          <NavigationProperty Name="Patient" Relationship="HMDatabaseModel.FK_OrthopaedicWard_Patients" FromRole="OrthopaedicWard" ToRole="Patient" />
         </EntityType>
         <EntityType Name="PaediatricWard">
           <Key>
@@ -560,37 +561,7 @@
           <Property Name="Consultant" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Elective" Relationship="Self.FK_PaediatricWard_Elective" FromRole="PaediatricWard" ToRole="Elective" />
           <NavigationProperty Name="Emergency" Relationship="Self.FK_PaediatricWard_Emergency" FromRole="PaediatricWard" ToRole="Emergency" />
-          <NavigationProperty Name="Patient" Relationship="Self.FK_PaediatricWard_Patients" FromRole="PaediatricWard" ToRole="Patients" />
-        </EntityType>
-        <EntityType Name="Patient">
-          <Key>
-            <PropertyRef Name="PatientID" />
-          </Key>
-          <Property Name="PatientID" Type="String" MaxLength="36" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="ArrivalDate" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="Forename" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Surname" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Category" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Sex" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="DateOfBirth" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="Address" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="MaritalStatus" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Occupation" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Religion" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="GP" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Insurance" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
-          <Property Name="AdmissionType" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Consultant" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
-          <Property Name="Ward" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
-          <Property Name="BedNumber" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Billings" Relationship="Self.FK_Billing_Patients" FromRole="Patients" ToRole="Billing" />
-          <NavigationProperty Name="Electives" Relationship="Self.FK_Elective_Patients" FromRole="Patients" ToRole="Elective" />
-          <NavigationProperty Name="Emergencies" Relationship="Self.FK_Emergency_Patients" FromRole="Patients" ToRole="Emergency" />
-          <NavigationProperty Name="GeneralWards" Relationship="Self.FK_GeneralWard_Patients" FromRole="Patients" ToRole="GeneralWard" />
-          <NavigationProperty Name="ICUs" Relationship="Self.FK_ICU_Patients" FromRole="Patients" ToRole="ICU" />
-          <NavigationProperty Name="OrthopaedicWards" Relationship="Self.FK_OrthopaedicWard_Patients" FromRole="Patients" ToRole="OrthopaedicWard" />
-          <NavigationProperty Name="PaediatricWards" Relationship="Self.FK_PaediatricWard_Patients" FromRole="Patients" ToRole="PaediatricWard" />
-          <NavigationProperty Name="SurgicalWards" Relationship="Self.FK_SurgicalWard_Patients" FromRole="Patients" ToRole="SurgicalWard" />
+          <NavigationProperty Name="Patient" Relationship="HMDatabaseModel.FK_PaediatricWard_Patients" FromRole="PaediatricWard" ToRole="Patient" />
         </EntityType>
         <EntityType Name="SurgicalWard">
           <Key>
@@ -606,43 +577,19 @@
           <Property Name="Consultant" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Elective" Relationship="Self.FK_SurgicalWard_Elective" FromRole="SurgicalWard" ToRole="Elective" />
           <NavigationProperty Name="Emergency" Relationship="Self.FK_SurgicalWard_Emergency" FromRole="SurgicalWard" ToRole="Emergency" />
-          <NavigationProperty Name="Patient" Relationship="Self.FK_SurgicalWard_Patients" FromRole="SurgicalWard" ToRole="Patients" />
+          <NavigationProperty Name="Patient" Relationship="HMDatabaseModel.FK_SurgicalWard_Patients" FromRole="SurgicalWard" ToRole="Patient" />
         </EntityType>
         <EntityType Name="User">
           <Key>
             <PropertyRef Name="UserID" />
           </Key>
           <Property Name="UserID" Type="String" MaxLength="36" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="36" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Password" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Forename" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Surname" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="AccessLevel" Type="Int32" Nullable="false" />
-          <Property Name="UserName" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="true" />
         </EntityType>
-        <Association Name="FK_Billing_Patients">
-          <End Role="Patients" Type="Self.Patient" Multiplicity="1" />
-          <End Role="Billing" Type="Self.Billing" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Patients">
-              <PropertyRef Name="PatientID" />
-            </Principal>
-            <Dependent Role="Billing">
-              <PropertyRef Name="PatientID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Elective_Patients">
-          <End Role="Patients" Type="Self.Patient" Multiplicity="1" />
-          <End Role="Elective" Type="Self.Elective" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Patients">
-              <PropertyRef Name="PatientID" />
-            </Principal>
-            <Dependent Role="Elective">
-              <PropertyRef Name="PatientID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_GeneralWard_Elective">
           <End Role="Elective" Type="Self.Elective" Multiplicity="1" />
           <End Role="GeneralWard" Type="Self.GeneralWard" Multiplicity="*" />
@@ -700,18 +647,6 @@
             </Principal>
             <Dependent Role="SurgicalWard">
               <PropertyRef Name="ElectiveRecordID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Emergency_Patients">
-          <End Role="Patients" Type="Self.Patient" Multiplicity="1" />
-          <End Role="Emergency" Type="Self.Emergency" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Patients">
-              <PropertyRef Name="PatientID" />
-            </Principal>
-            <Dependent Role="Emergency">
-              <PropertyRef Name="PatientID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -775,66 +710,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_GeneralWard_Patients">
-          <End Role="Patients" Type="Self.Patient" Multiplicity="1" />
-          <End Role="GeneralWard" Type="Self.GeneralWard" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Patients">
-              <PropertyRef Name="PatientID" />
-            </Principal>
-            <Dependent Role="GeneralWard">
-              <PropertyRef Name="PatientID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_ICU_Patients">
-          <End Role="Patients" Type="Self.Patient" Multiplicity="1" />
-          <End Role="ICU" Type="Self.ICU" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Patients">
-              <PropertyRef Name="PatientID" />
-            </Principal>
-            <Dependent Role="ICU">
-              <PropertyRef Name="PatientID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_OrthopaedicWard_Patients">
-          <End Role="Patients" Type="Self.Patient" Multiplicity="1" />
-          <End Role="OrthopaedicWard" Type="Self.OrthopaedicWard" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Patients">
-              <PropertyRef Name="PatientID" />
-            </Principal>
-            <Dependent Role="OrthopaedicWard">
-              <PropertyRef Name="PatientID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_PaediatricWard_Patients">
-          <End Role="Patients" Type="Self.Patient" Multiplicity="1" />
-          <End Role="PaediatricWard" Type="Self.PaediatricWard" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Patients">
-              <PropertyRef Name="PatientID" />
-            </Principal>
-            <Dependent Role="PaediatricWard">
-              <PropertyRef Name="PatientID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_SurgicalWard_Patients">
-          <End Role="Patients" Type="Self.Patient" Multiplicity="1" />
-          <End Role="SurgicalWard" Type="Self.SurgicalWard" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Patients">
-              <PropertyRef Name="PatientID" />
-            </Principal>
-            <Dependent Role="SurgicalWard">
-              <PropertyRef Name="PatientID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityContainer Name="HMDatabaseEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Billings" EntityType="Self.Billing" />
           <EntitySet Name="Electives" EntityType="Self.Elective" />
@@ -843,17 +718,8 @@
           <EntitySet Name="ICUs" EntityType="Self.ICU" />
           <EntitySet Name="OrthopaedicWards" EntityType="Self.OrthopaedicWard" />
           <EntitySet Name="PaediatricWards" EntityType="Self.PaediatricWard" />
-          <EntitySet Name="Patients" EntityType="Self.Patient" />
           <EntitySet Name="SurgicalWards" EntityType="Self.SurgicalWard" />
           <EntitySet Name="Users" EntityType="Self.User" />
-          <AssociationSet Name="FK_Billing_Patients" Association="Self.FK_Billing_Patients">
-            <End Role="Patients" EntitySet="Patients" />
-            <End Role="Billing" EntitySet="Billings" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Elective_Patients" Association="Self.FK_Elective_Patients">
-            <End Role="Patients" EntitySet="Patients" />
-            <End Role="Elective" EntitySet="Electives" />
-          </AssociationSet>
           <AssociationSet Name="FK_GeneralWard_Elective" Association="Self.FK_GeneralWard_Elective">
             <End Role="Elective" EntitySet="Electives" />
             <End Role="GeneralWard" EntitySet="GeneralWards" />
@@ -873,10 +739,6 @@
           <AssociationSet Name="FK_SurgicalWard_Elective" Association="Self.FK_SurgicalWard_Elective">
             <End Role="Elective" EntitySet="Electives" />
             <End Role="SurgicalWard" EntitySet="SurgicalWards" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Emergency_Patients" Association="Self.FK_Emergency_Patients">
-            <End Role="Patients" EntitySet="Patients" />
-            <End Role="Emergency" EntitySet="Emergencies" />
           </AssociationSet>
           <AssociationSet Name="FK_GeneralWard_Emergency" Association="Self.FK_GeneralWard_Emergency">
             <End Role="Emergency" EntitySet="Emergencies" />
@@ -898,27 +760,167 @@
             <End Role="Emergency" EntitySet="Emergencies" />
             <End Role="SurgicalWard" EntitySet="SurgicalWards" />
           </AssociationSet>
-          <AssociationSet Name="FK_GeneralWard_Patients" Association="Self.FK_GeneralWard_Patients">
-            <End Role="Patients" EntitySet="Patients" />
+          <EntitySet Name="Patients" EntityType="HMDatabaseModel.Patient" />
+          <AssociationSet Name="FK_Billing_Patients" Association="HMDatabaseModel.FK_Billing_Patients">
+            <End Role="Patient" EntitySet="Patients" />
+            <End Role="Billing" EntitySet="Billings" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Elective_Patients" Association="HMDatabaseModel.FK_Elective_Patients">
+            <End Role="Patient" EntitySet="Patients" />
+            <End Role="Elective" EntitySet="Electives" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Emergency_Patients" Association="HMDatabaseModel.FK_Emergency_Patients">
+            <End Role="Patient" EntitySet="Patients" />
+            <End Role="Emergency" EntitySet="Emergencies" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GeneralWard_Patients" Association="HMDatabaseModel.FK_GeneralWard_Patients">
+            <End Role="Patient" EntitySet="Patients" />
             <End Role="GeneralWard" EntitySet="GeneralWards" />
           </AssociationSet>
-          <AssociationSet Name="FK_ICU_Patients" Association="Self.FK_ICU_Patients">
-            <End Role="Patients" EntitySet="Patients" />
+          <AssociationSet Name="FK_ICU_Patients" Association="HMDatabaseModel.FK_ICU_Patients">
+            <End Role="Patient" EntitySet="Patients" />
             <End Role="ICU" EntitySet="ICUs" />
           </AssociationSet>
-          <AssociationSet Name="FK_OrthopaedicWard_Patients" Association="Self.FK_OrthopaedicWard_Patients">
-            <End Role="Patients" EntitySet="Patients" />
+          <AssociationSet Name="FK_OrthopaedicWard_Patients" Association="HMDatabaseModel.FK_OrthopaedicWard_Patients">
+            <End Role="Patient" EntitySet="Patients" />
             <End Role="OrthopaedicWard" EntitySet="OrthopaedicWards" />
           </AssociationSet>
-          <AssociationSet Name="FK_PaediatricWard_Patients" Association="Self.FK_PaediatricWard_Patients">
-            <End Role="Patients" EntitySet="Patients" />
+          <AssociationSet Name="FK_PaediatricWard_Patients" Association="HMDatabaseModel.FK_PaediatricWard_Patients">
+            <End Role="Patient" EntitySet="Patients" />
             <End Role="PaediatricWard" EntitySet="PaediatricWards" />
           </AssociationSet>
-          <AssociationSet Name="FK_SurgicalWard_Patients" Association="Self.FK_SurgicalWard_Patients">
-            <End Role="Patients" EntitySet="Patients" />
+          <AssociationSet Name="FK_SurgicalWard_Patients" Association="HMDatabaseModel.FK_SurgicalWard_Patients">
+            <End Role="Patient" EntitySet="Patients" />
             <End Role="SurgicalWard" EntitySet="SurgicalWards" />
           </AssociationSet>
-        </EntityContainer>
+          </EntityContainer>
+        <EntityType Name="Patient">
+          <Key>
+            <PropertyRef Name="PatientID" />
+          </Key>
+          <Property Name="PatientID" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="true" />
+          <Property Name="PatientNumber" Type="Int32" Nullable="false" />
+          <Property Name="ArrivalDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Forename" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Surname" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Category" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Sex" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="DateOfBirth" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Address" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="MaritalStatus" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Occupation" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Religion" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="GP" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Insurance" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+          <Property Name="AdmissionType" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Consultant" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Ward" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="BedNumber" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Billings" Relationship="HMDatabaseModel.FK_Billing_Patients" FromRole="Patient" ToRole="Billing" />
+          <NavigationProperty Name="Electives" Relationship="HMDatabaseModel.FK_Elective_Patients" FromRole="Patient" ToRole="Elective" />
+          <NavigationProperty Name="Emergencies" Relationship="HMDatabaseModel.FK_Emergency_Patients" FromRole="Patient" ToRole="Emergency" />
+          <NavigationProperty Name="GeneralWards" Relationship="HMDatabaseModel.FK_GeneralWard_Patients" FromRole="Patient" ToRole="GeneralWard" />
+          <NavigationProperty Name="ICUs" Relationship="HMDatabaseModel.FK_ICU_Patients" FromRole="Patient" ToRole="ICU" />
+          <NavigationProperty Name="OrthopaedicWards" Relationship="HMDatabaseModel.FK_OrthopaedicWard_Patients" FromRole="Patient" ToRole="OrthopaedicWard" />
+          <NavigationProperty Name="PaediatricWards" Relationship="HMDatabaseModel.FK_PaediatricWard_Patients" FromRole="Patient" ToRole="PaediatricWard" />
+          <NavigationProperty Name="SurgicalWards" Relationship="HMDatabaseModel.FK_SurgicalWard_Patients" FromRole="Patient" ToRole="SurgicalWard" />
+        </EntityType>
+        <Association Name="FK_Billing_Patients">
+          <End Type="HMDatabaseModel.Patient" Role="Patient" Multiplicity="1" />
+          <End Type="HMDatabaseModel.Billing" Role="Billing" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Patient">
+              <PropertyRef Name="PatientID" />
+            </Principal>
+            <Dependent Role="Billing">
+              <PropertyRef Name="PatientID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Elective_Patients">
+          <End Type="HMDatabaseModel.Patient" Role="Patient" Multiplicity="1" />
+          <End Type="HMDatabaseModel.Elective" Role="Elective" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Patient">
+              <PropertyRef Name="PatientID" />
+            </Principal>
+            <Dependent Role="Elective">
+              <PropertyRef Name="PatientID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Emergency_Patients">
+          <End Type="HMDatabaseModel.Patient" Role="Patient" Multiplicity="1" />
+          <End Type="HMDatabaseModel.Emergency" Role="Emergency" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Patient">
+              <PropertyRef Name="PatientID" />
+            </Principal>
+            <Dependent Role="Emergency">
+              <PropertyRef Name="PatientID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GeneralWard_Patients">
+          <End Type="HMDatabaseModel.Patient" Role="Patient" Multiplicity="1" />
+          <End Type="HMDatabaseModel.GeneralWard" Role="GeneralWard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Patient">
+              <PropertyRef Name="PatientID" />
+            </Principal>
+            <Dependent Role="GeneralWard">
+              <PropertyRef Name="PatientID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ICU_Patients">
+          <End Type="HMDatabaseModel.Patient" Role="Patient" Multiplicity="1" />
+          <End Type="HMDatabaseModel.ICU" Role="ICU" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Patient">
+              <PropertyRef Name="PatientID" />
+            </Principal>
+            <Dependent Role="ICU">
+              <PropertyRef Name="PatientID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrthopaedicWard_Patients">
+          <End Type="HMDatabaseModel.Patient" Role="Patient" Multiplicity="1" />
+          <End Type="HMDatabaseModel.OrthopaedicWard" Role="OrthopaedicWard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Patient">
+              <PropertyRef Name="PatientID" />
+            </Principal>
+            <Dependent Role="OrthopaedicWard">
+              <PropertyRef Name="PatientID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PaediatricWard_Patients">
+          <End Type="HMDatabaseModel.Patient" Role="Patient" Multiplicity="1" />
+          <End Type="HMDatabaseModel.PaediatricWard" Role="PaediatricWard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Patient">
+              <PropertyRef Name="PatientID" />
+            </Principal>
+            <Dependent Role="PaediatricWard">
+              <PropertyRef Name="PatientID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SurgicalWard_Patients">
+          <End Type="HMDatabaseModel.Patient" Role="Patient" Multiplicity="1" />
+          <End Type="HMDatabaseModel.SurgicalWard" Role="SurgicalWard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Patient">
+              <PropertyRef Name="PatientID" />
+            </Principal>
+            <Dependent Role="SurgicalWard">
+              <PropertyRef Name="PatientID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1023,29 +1025,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Patients">
-            <EntityTypeMapping TypeName="HMDatabaseModel.Patient">
-              <MappingFragment StoreEntitySet="Patients">
-                <ScalarProperty Name="PatientID" ColumnName="PatientID" />
-                <ScalarProperty Name="ArrivalDate" ColumnName="ArrivalDate" />
-                <ScalarProperty Name="Forename" ColumnName="Forename" />
-                <ScalarProperty Name="Surname" ColumnName="Surname" />
-                <ScalarProperty Name="Category" ColumnName="Category" />
-                <ScalarProperty Name="Sex" ColumnName="Sex" />
-                <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
-                <ScalarProperty Name="Address" ColumnName="Address" />
-                <ScalarProperty Name="MaritalStatus" ColumnName="MaritalStatus" />
-                <ScalarProperty Name="Occupation" ColumnName="Occupation" />
-                <ScalarProperty Name="Religion" ColumnName="Religion" />
-                <ScalarProperty Name="GP" ColumnName="GP" />
-                <ScalarProperty Name="Insurance" ColumnName="Insurance" />
-                <ScalarProperty Name="AdmissionType" ColumnName="AdmissionType" />
-                <ScalarProperty Name="Consultant" ColumnName="Consultant" />
-                <ScalarProperty Name="Ward" ColumnName="Ward" />
-                <ScalarProperty Name="BedNumber" ColumnName="BedNumber" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="SurgicalWards">
             <EntityTypeMapping TypeName="HMDatabaseModel.SurgicalWard">
               <MappingFragment StoreEntitySet="SurgicalWard">
@@ -1063,12 +1042,36 @@
           <EntitySetMapping Name="Users">
             <EntityTypeMapping TypeName="HMDatabaseModel.User">
               <MappingFragment StoreEntitySet="Users">
-                <ScalarProperty Name="UserName" ColumnName="UserName" />
                 <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
                 <ScalarProperty Name="Password" ColumnName="Password" />
                 <ScalarProperty Name="Forename" ColumnName="Forename" />
                 <ScalarProperty Name="Surname" ColumnName="Surname" />
                 <ScalarProperty Name="AccessLevel" ColumnName="AccessLevel" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Patients">
+            <EntityTypeMapping TypeName="HMDatabaseModel.Patient">
+              <MappingFragment StoreEntitySet="Patients">
+                <ScalarProperty Name="BedNumber" ColumnName="BedNumber" />
+                <ScalarProperty Name="Ward" ColumnName="Ward" />
+                <ScalarProperty Name="Consultant" ColumnName="Consultant" />
+                <ScalarProperty Name="AdmissionType" ColumnName="AdmissionType" />
+                <ScalarProperty Name="Insurance" ColumnName="Insurance" />
+                <ScalarProperty Name="GP" ColumnName="GP" />
+                <ScalarProperty Name="Religion" ColumnName="Religion" />
+                <ScalarProperty Name="Occupation" ColumnName="Occupation" />
+                <ScalarProperty Name="MaritalStatus" ColumnName="MaritalStatus" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+                <ScalarProperty Name="Sex" ColumnName="Sex" />
+                <ScalarProperty Name="Category" ColumnName="Category" />
+                <ScalarProperty Name="Surname" ColumnName="Surname" />
+                <ScalarProperty Name="Forename" ColumnName="Forename" />
+                <ScalarProperty Name="ArrivalDate" ColumnName="ArrivalDate" />
+                <ScalarProperty Name="PatientNumber" ColumnName="PatientNumber" />
+                <ScalarProperty Name="PatientID" ColumnName="PatientID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
