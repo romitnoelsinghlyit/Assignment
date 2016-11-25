@@ -104,7 +104,7 @@
                     <DatePicker x:Name="dtpDateOfBirth" HorizontalAlignment="Left"  Grid.Row="1" Grid.Column="1" Margin="5"  Width="150" Height="25"/>
 
                     <Label x:Name="lblSex" Content="Sex" Grid.Row="1" Grid.Column="2" HorizontalAlignment="Right" Margin ="5" FontWeight="Bold" Height="25"/>
-                    <ComboBox x:Name="cmbSex" HorizontalAlignment="Left"  Grid.Row="1" Grid.Column="3" Margin="5"  Width="150" Height="25" SelectionChanged="cmbSex_SelectionChanged">
+                    <ComboBox x:Name="cmbSex" HorizontalAlignment="Left"  Grid.Row="1" Grid.Column="3" Margin="5"  Width="150" Height="25">
                         <ComboBoxItem>Male</ComboBoxItem>
                         <ComboBoxItem IsSelected="True">Female</ComboBoxItem>
                     </ComboBox>
@@ -136,7 +136,7 @@
                         <ColumnDefinition Width="25*"/>
                     </Grid.ColumnDefinitions>
                     <Label x:Name="lblAddress" Content="Address" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Right" Margin ="5" FontWeight="Bold" Height="25"/>
-                    <TextBox x:Name="tbxAddress" HorizontalAlignment="Left" Height="110" AcceptsReturn="True" TextWrapping="Wrap" Grid.Row="0" Grid.Column="1" Margin ="5" Width="150" TextChanged="tbxAddress_TextChanged"/>
+                    <TextBox x:Name="tbxAddress" HorizontalAlignment="Left" Height="110" AcceptsReturn="True" TextWrapping="Wrap" Grid.Row="0" Grid.Column="1" Margin ="5" Width="150" VerticalAlignment="Top"/>
 
                     <Label x:Name="lblGP" Content="GP" Grid.Row="0" Grid.Column="2" HorizontalAlignment="Right" Margin ="5" FontWeight="Bold" Height="25"/>
                     <TextBox x:Name="tbxGP" HorizontalAlignment="Left" Height="110" AcceptsReturn="True" TextWrapping="Wrap" Grid.Row="0" Grid.Column="3" Margin ="5" Width="150"/>
@@ -153,7 +153,7 @@
                         <ColumnDefinition Width="25*"/>
                     </Grid.ColumnDefinitions>
                     <Button x:Name="btnSearch" Content="Search" Width="75" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" Margin ="5"/>
-                    <Button x:Name="btnCreate" Content="Create" Width="76" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" Margin ="62,5,62,0" Height="20" VerticalAlignment="Top" Click="btnCreate_Click"/>
+                    <Button x:Name="btnCreate" Content="Create" Width="76" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" Margin ="62,5,62,0" Height="20" VerticalAlignment="Top"/>
                     <Button x:Name="btnSave" Content="Save" Width="75" Grid.Row="0" Grid.Column="2" HorizontalAlignment="Center" Margin ="5"/>
                     <Button x:Name="btnCancel" Content="Cancel" Width="76" Grid.Row="0" Grid.Column="3" HorizontalAlignment="Center" Margin ="62,0,62,5" Height="20" VerticalAlignment="Bottom"/>
                 </Grid>
