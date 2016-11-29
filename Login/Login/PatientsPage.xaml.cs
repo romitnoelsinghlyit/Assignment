@@ -57,10 +57,18 @@ namespace Login
         private void btnCreate_Click(object sender, RoutedEventArgs e)
         {
             Patient patient = new Patient();
+
             int patientCount = dbEntities.Patients.Count() + 1;
             tbxPatientNumber.Text = patientCount.ToString();
-            entityState = "Add";
+            //entityState = "Add";
             patient.PatientNumber = Convert.ToInt16(tbxPatientNumber.Text);
+
+            patient.PatientID = Guid.NewGuid().ToString();
+            dbEntities.Configuration.AutoDetectChangesEnabled = false;
+            dbEntities.Configuration.ValidateOnSaveEnabled = false;
+            dbEntities.Entry(patient).State = System.Data.Entity.EntityState.Added;
+
+
         }
 
         private void btnModify_Click(object sender, RoutedEventArgs e)
@@ -71,31 +79,29 @@ namespace Login
 
         private void btnSave_Click(object sender, RoutedEventArgs e)
         {
-            //entityState = "Modify";
-
+            
             bool patientVerified = mtdVerifyPatientDetails(currentPatient);
             if (patientVerified)
             {
+               
+
+                currentPatient.Forename = tbxForename.Text.Trim();
+                currentPatient.Surname = tbxSurname.Text.Trim();
+                currentPatient.MaritalStatus = tbxMaritalStatus.Text.Trim();
+                currentPatient.Insurance = tbxInsurance.Text.Trim();
+                currentPatient.Occupation = tbxOccupation.Text.Trim();
+                currentPatient.Religion = tbxReligion.Text.Trim();
+                currentPatient.Address = tbxAddress.Text.Trim();
+                currentPatient.GP = tbxGP.Text.Trim();
+                currentPatient.PatientNumber = Convert.ToInt16(tbxPatientNumber.Text.Trim());
+                currentPatient.Sex = cmbSex.SelectedItem.ToString();
+
+                currentPatient.ArrivalDate = dtpArrivalDate.SelectedDate.Value;
+                currentPatient.DateOfBirth = dtpDateOfBirth.SelectedDate.Value;
+                currentPatient.PatientNumber = Convert.ToInt16(tbxPatientNumber.Text);
+
                 mtdUpdatePatient(currentPatient, entityState);
             }
-
-
-            currentPatient.Forename = tbxForename.Text.Trim();
-            currentPatient.Surname = tbxSurname.Text.Trim();
-            currentPatient.MaritalStatus = tbxMaritalStatus.Text.Trim();
-            currentPatient.Insurance = tbxInsurance.Text.Trim();
-            currentPatient.Occupation = tbxOccupation.Text.Trim();
-            currentPatient.Religion = tbxReligion.Text.Trim();
-            currentPatient.Address = tbxAddress.Text.Trim();
-            currentPatient.GP = tbxGP.Text.Trim();
-            currentPatient.PatientNumber = Convert.ToInt16(tbxPatientNumber.Text.Trim());
-            currentPatient.Sex = cmbSex.SelectedItem.ToString();
-
-            currentPatient.ArrivalDate = dtpArrivalDate.SelectedDate.Value;
-            currentPatient.DateOfBirth = dtpDateOfBirth.SelectedDate.Value ;
-            currentPatient.PatientNumber = Convert.ToInt16( tbxPatientNumber.Text);             
-
-                      
         }
 
         private bool mtdVerifyPatientDetails(Patient patient)
@@ -128,14 +134,14 @@ namespace Login
         {
             try
             {
-                if (modifyState == "Add")
-                {
-                    patient.PatientID = Guid.NewGuid().ToString();                 
-                    dbEntities.Configuration.AutoDetectChangesEnabled = false;
-                    dbEntities.Configuration.ValidateOnSaveEnabled = false;
-                    dbEntities.Entry(patient).State = System.Data.Entity.EntityState.Added;
-                    MessageBox.Show("New patient added");
-                }
+                //if (modifyState == "Add")
+                //{
+                //    patient.PatientID = Guid.NewGuid().ToString();
+                //    dbEntities.Configuration.AutoDetectChangesEnabled = false;
+                //    dbEntities.Configuration.ValidateOnSaveEnabled = false;
+                //    dbEntities.Entry(patient).State = System.Data.Entity.EntityState.Added;
+                //    //MessageBox.Show("New patient added");
+                //}
                 if (modifyState == "Modify")
                 {
                     foreach (var userRecord in dbEntities.Patients.Where(t => t.PatientID == patient.PatientID))
@@ -151,7 +157,7 @@ namespace Login
 
                         userRecord.Sex = patient.Sex;
 
-                        userRecord.ArrivalDate = patient.ArrivalDate;
+                        userRecord.ArrivalDate = patient.ArrivalDate.Date;
                         userRecord.DateOfBirth = patient.DateOfBirth;
 
                         userRecord.AdmissionType = patient.AdmissionType;
@@ -170,16 +176,11 @@ namespace Login
                 dbEntities.Configuration.AutoDetectChangesEnabled = true;
                 dbEntities.Configuration.ValidateOnSaveEnabled = true;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 MessageBox.Show("Problem writing to database");
             }
-        }
-
-
-
-        
-
+        }      
        
 
         private void btnDelete_Click(object sender, RoutedEventArgs e)
@@ -195,9 +196,6 @@ namespace Login
             //currentEmergency.DateOfBirth = dtpArrivalDate.SelectedDate;
             //currentEmergency.Forename = tbxForename.Text;
             //currentEmergency.Surname = tbxSurname.Text;
-
-
-
         }
 
         private void rdoEmergency_Unchecked(object sender, RoutedEventArgs e)
@@ -246,12 +244,23 @@ namespace Login
 
         private void btnSearch_Click(object sender, RoutedEventArgs e)
         {
-            int searchPatientNumber = Convert.ToInt16( tbxPatientNumber.Text);
+            int searchPatientNumber = Convert.ToInt16(tbxPatientNumber.Text);
             Patient patient = new Patient();
         }
 
         private void cmbSex_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            var combobox = (System.Windows.Controls.ComboBox)sender;
+            ComboBoxItem item = (ComboBoxItem)combobox.SelectedItem;
+            string value;
+            
+            
+            if (combobox.SelectedIndex > -1)
+            {
+                value = item.Content.ToString().Trim();
+                //string value = item.Content.ToString().Trim();
+                currentPatient.Sex = value;
+            }
 
         }
     }
