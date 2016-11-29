@@ -232,10 +232,7 @@ namespace Login
             Environment.Exit(0);
         }
 
-        private void frmeMainFrame_Navigated_1(object sender, System.Windows.Navigation.NavigationEventArgs e)
-        {
-
-        }
+             
 
         private void mtdAdminUser(User currentuser)
         {

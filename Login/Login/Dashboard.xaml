@@ -33,10 +33,10 @@ Title="Dashboard" Height="700" Width="1100">
                         <ColumnDefinition Width="50*" />
                         <ColumnDefinition Width="50*" />
                     </Grid.ColumnDefinitions>
-                    <Label Grid.Row="0" Grid.Column="0" FontSize="14" Content="User : "/>
-                    <Label Name="lblCurrentUser" FontSize="11" Grid.Row="0" Grid.Column="1" Foreground="Orange"  FontWeight="Bold"/>
+                    <Label Grid.Row="0" Grid.Column="0" FontSize="14" Content="User : "></Label>
+                    <Label Name="lblCurrentUser" FontSize="14" Grid.Row="0" Grid.Column="1"></Label>
                     <Label Grid.Row="1" Grid.Column="0" Content="Version : "></Label>
-                    <Label Grid.Row="1" Grid.Column="1" Name="lblVersion" Content="1.0"></Label>
+                    <Label Grid.Row="1" Grid.Column="1" Name="lblVersion" Content="3.0"></Label>
                 </Grid>
             </DockPanel>
         </DockPanel>
@@ -76,7 +76,7 @@ Title="Dashboard" Height="700" Width="1100">
                         <ColumnDefinition Width="18*"/>
                         <ColumnDefinition Width="10*"/>
                     </Grid.ColumnDefinitions>
-                    <Button Name ="btnPatients"       Grid.Row="0" Grid.Column="0" Content="Patients" FontSize="14" Margin ="5,8,5,2" FontWeight="Bold" Click="btnPatients_Click"/>
+                    <Button Name ="btnPatients"       Grid.Row="0" Grid.Column="0" Content="Patients" FontSize="14" Margin ="5,8,5,0" FontWeight="Bold" Click="btnPatients_Click" Height="23" VerticalAlignment="Top"/>
                     <Button Name="btnEmergency"       Grid.Row="0" Grid.Column="1" Content="Emergency" FontSize="14" Margin ="5,8,5,2" FontWeight="Bold" Click="btnEmergency_Click"/>
                     <Button Name="btnElective"        Grid.Row="0" Grid.Column="2" Content="Elective" FontSize="14" Margin ="5,8,5,2" FontWeight="Bold" Click="btnElective_Click"/>
                     <Button Name="btnGeneralWard"     Grid.Row="0" Grid.Column="3" Content="General Ward" FontSize="14" Margin ="5,8,5,2" FontWeight="Bold" Click="btnGeneralWard_Click"/>
@@ -93,17 +93,16 @@ Title="Dashboard" Height="700" Width="1100">
             </DockPanel>
         </DockPanel>
         <DockPanel Grid.ColumnSpan="3" Grid.Column="0" Grid.Row="1" Name="dockMainPanel">
-            <Border CornerRadius="10" BorderBrush="Black" BorderThickness="3" Padding="4" Visibility="Collapsed">
+            <Border CornerRadius="10" BorderBrush="Black" BorderThickness="3" Padding="4">
                 <Border.Effect>
                     <DropShadowEffect Color="Gray"
                                       Opacity=".50"
                                       ShadowDepth="4" />
                 </Border.Effect>
-                <Frame x:Name="frmeMainFrame" NavigationUIVisibility="Hidden" Navigated="frmeMainFrame_Navigated_1" >
+                <Frame x:Name="frmeMainFrame" NavigationUIVisibility="Hidden" Navigated="frmeMainFrame_Navigated" >
                 </Frame>
             </Border>
         </DockPanel>
 
     </Grid>
 </Window>
-
