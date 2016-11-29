@@ -33,8 +33,8 @@ Title="Dashboard" Height="700" Width="1100">
                         <ColumnDefinition Width="50*" />
                         <ColumnDefinition Width="50*" />
                     </Grid.ColumnDefinitions>
-                    <Label Grid.Row="0" Grid.Column="0" FontSize="14" Content="User : "></Label>
-                    <Label Name="lblCurrentUser" FontSize="14" Grid.Row="0" Grid.Column="1"></Label>
+                    <Label Grid.Row="0" Grid.Column="0" FontSize="14" Content="User : "/>
+                    <Label Name="lblCurrentUser" FontSize="14" Grid.Row="0" Grid.Column="1"/>
                     <Label Grid.Row="1" Grid.Column="0" Content="Version : "></Label>
                     <Label Grid.Row="1" Grid.Column="1" Name="lblVersion" Content="3.0"></Label>
                 </Grid>
@@ -93,7 +93,7 @@ Title="Dashboard" Height="700" Width="1100">
             </DockPanel>
         </DockPanel>
         <DockPanel Grid.ColumnSpan="3" Grid.Column="0" Grid.Row="1" Name="dockMainPanel">
-            <Border CornerRadius="10" BorderBrush="Black" BorderThickness="3" Padding="4">
+            <Border CornerRadius="10" BorderBrush="Black" BorderThickness="3" Padding="4" Visibility="Collapsed">
                 <Border.Effect>
                     <DropShadowEffect Color="Gray"
                                       Opacity=".50"

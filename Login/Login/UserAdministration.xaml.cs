@@ -84,6 +84,14 @@ namespace Login
                 {
                     cboAccessLevel.SelectedIndex = 1;
                 }
+                if (selectedUser.AccessLevel == 3)//A new record may need to be created and its index will =0
+                {
+                    cboAccessLevel.SelectedIndex = 2;
+                }
+                if (selectedUser.AccessLevel == 4)//A new record may need to be created and its index will =0
+                {
+                    cboAccessLevel.SelectedIndex = 3;
+                }
             }
             catch (Exception)
             {
@@ -206,6 +214,11 @@ namespace Login
             mtdPopulateUserTable();
             lstUsersList.Items.Refresh();
             dockUserPanel.Visibility = Visibility.Collapsed;
+        }
+
+        private void tbxUserForename_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
         }
     }
 }

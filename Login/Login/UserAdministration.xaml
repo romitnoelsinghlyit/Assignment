@@ -80,8 +80,10 @@
                      Name="tbxUserPassword" TabIndex="3" Margin="0,2" />
                 <ComboBox Grid.Column="1" Grid.Row="4" VerticalAlignment="Center" HorizontalAlignment="Left" Width="200"
                       Name="cboAccessLevel" TabIndex="4" Height="28" Margin="0,1">
-                    <ComboBoxItem>Super Administrator</ComboBoxItem>
-                    <ComboBoxItem>Area administrator</ComboBoxItem>
+                    <ComboBoxItem>Administrator</ComboBoxItem>
+                    <ComboBoxItem>Doctor</ComboBoxItem>
+                    <ComboBoxItem>Nurse</ComboBoxItem>
+                    <ComboBoxItem>Reception</ComboBoxItem>
                 </ComboBox>
                 <DockPanel Grid.Row="5" Grid.Column="1" Width="200" VerticalAlignment="Center" HorizontalAlignment="Left">
                     <Button Grid.Column="1"
@@ -107,7 +109,7 @@
                     Width="60" TabIndex="5">Update</Button>
                 </DockPanel>
                 <Label Name="label1" Foreground="Black" Grid.Row="0">Forename</Label>
-                <TextBox Grid.Column="1" Height="26" HorizontalAlignment="Right" VerticalAlignment="Center" Width="200" Foreground="Black" Background="Transparent"  Name="tbxUserForename" TabIndex="1" Grid.Row="0" Margin="0,7,148,7" />
+                <TextBox Grid.Column="1" Height="26" HorizontalAlignment="Right" VerticalAlignment="Center" Width="200" Foreground="Black" Background="Transparent"  Name="tbxUserForename" TabIndex="1" Grid.Row="0" Margin="0,7,148,7" TextChanged="tbxUserForename_TextChanged" />
                 <Label Grid.Row="1" Foreground="Black" Background="Transparent" Name="label2">Surname</Label>
                 <TextBox Grid.Column="1" Height="26" HorizontalAlignment="Left" VerticalAlignment="Center" Width="200" Foreground="Black" Background="Transparent" 
                    

@@ -20,6 +20,7 @@ namespace Login
     public partial class Dashboard : Window
     {
         public User user = new User();
+       
         public Dashboard()
         {
             InitializeComponent();
@@ -27,6 +28,29 @@ namespace Login
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            if (user.AccessLevel == 1)
+
+            {
+                mtdAdminUser(user);
+            }
+
+            if (user.AccessLevel == 2)
+
+            {
+                mtdDoctorUser(user);
+            }
+
+            if (user.AccessLevel == 3)
+
+            {
+                mtdNurseUser(user);
+            }
+
+            if (user.AccessLevel == 4)
+
+            {
+                mtdReceptionUser(user);
+            }
 
         }
 
@@ -212,5 +236,72 @@ namespace Login
         {
 
         }
+
+        private void mtdAdminUser(User currentuser)
+        {
+            lblCurrentUser.Content = currentuser.UserName.ToString();
+            btnAdministration.Visibility = Visibility.Visible;
+            btnBilling.Visibility = Visibility.Visible;
+            btnPatients.Visibility = Visibility.Visible;
+            btnTestsScans.Visibility = Visibility.Visible;
+            btnEmergency.Visibility = Visibility.Visible;
+            btnElective.Visibility = Visibility.Visible;
+            btnGeneralWard.Visibility = Visibility.Visible;
+            btnSurgicalWard.Visibility = Visibility.Visible;
+            btnICU.Visibility = Visibility.Visible;
+            btnOrthopaedicWard.Visibility = Visibility.Visible;
+            btnPaediatricWard.Visibility = Visibility.Visible;
+       }
+
+        private void mtdDoctorUser(User currentuser)
+        {
+
+            lblCurrentUser.Content = currentuser.UserName.ToString();
+            btnAdministration.Visibility = Visibility.Collapsed;
+            btnBilling.Visibility = Visibility.Visible;
+            btnPatients.Visibility = Visibility.Visible;
+            btnTestsScans.Visibility = Visibility.Visible;
+            btnEmergency.Visibility = Visibility.Visible;
+            btnElective.Visibility = Visibility.Visible;
+            btnGeneralWard.Visibility = Visibility.Visible;
+            btnSurgicalWard.Visibility = Visibility.Visible;
+            btnICU.Visibility = Visibility.Visible;
+            btnOrthopaedicWard.Visibility = Visibility.Visible;
+            btnPaediatricWard.Visibility = Visibility.Visible;
+        }
+        private void mtdNurseUser(User currentuser)
+        {
+            lblCurrentUser.Content = currentuser.UserName.ToString();
+            btnAdministration.Visibility = Visibility.Collapsed;
+            btnBilling.Visibility = Visibility.Collapsed;
+            btnPatients.Visibility = Visibility.Visible;
+            btnTestsScans.Visibility = Visibility.Visible;
+            btnEmergency.Visibility = Visibility.Visible;
+            btnElective.Visibility = Visibility.Visible;
+            btnGeneralWard.Visibility = Visibility.Visible;
+            btnSurgicalWard.Visibility = Visibility.Visible;
+            btnICU.Visibility = Visibility.Visible;
+            btnOrthopaedicWard.Visibility = Visibility.Visible;
+            btnPaediatricWard.Visibility = Visibility.Visible;
+
+        }
+
+        private void mtdReceptionUser(User currentuser)
+        {
+
+            lblCurrentUser.Content = currentuser.UserName.ToString();
+            btnAdministration.Visibility = Visibility.Collapsed;
+            btnBilling.Visibility = Visibility.Visible;
+            btnPatients.Visibility = Visibility.Visible;
+            btnTestsScans.Visibility = Visibility.Visible;
+            btnEmergency.Visibility = Visibility.Visible;
+            btnElective.Visibility = Visibility.Visible;
+            btnGeneralWard.Visibility = Visibility.Collapsed;
+            btnSurgicalWard.Visibility = Visibility.Collapsed;
+            btnICU.Visibility = Visibility.Collapsed;
+            btnOrthopaedicWard.Visibility = Visibility.Collapsed;
+            btnPaediatricWard.Visibility = Visibility.Collapsed;
+        }
+
     }
 }
