@@ -76,7 +76,7 @@ Title="Dashboard" Height="700" Width="1100">
                         <ColumnDefinition Width="18*"/>
                         <ColumnDefinition Width="10*"/>
                     </Grid.ColumnDefinitions>
-                    <Button Name ="btnPatients"       Grid.Row="0" Grid.Column="0" Content="Patients" FontSize="14" Margin ="5,8,5,0" FontWeight="Bold" Click="btnPatients_Click" Height="23" VerticalAlignment="Top"/>
+                    <Button Name ="btnPatients"       Grid.Row="0" Grid.Column="0" Content="Patients" FontSize="14" Margin ="5,8,5,2" FontWeight="Bold" Click="btnPatients_Click"/>
                     <Button Name="btnEmergency"       Grid.Row="0" Grid.Column="1" Content="Emergency" FontSize="14" Margin ="5,8,5,2" FontWeight="Bold" Click="btnEmergency_Click"/>
                     <Button Name="btnElective"        Grid.Row="0" Grid.Column="2" Content="Elective" FontSize="14" Margin ="5,8,5,2" FontWeight="Bold" Click="btnElective_Click"/>
                     <Button Name="btnGeneralWard"     Grid.Row="0" Grid.Column="3" Content="General Ward" FontSize="14" Margin ="5,8,5,2" FontWeight="Bold" Click="btnGeneralWard_Click"/>
