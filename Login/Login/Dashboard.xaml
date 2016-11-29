@@ -34,9 +34,9 @@ Title="Dashboard" Height="700" Width="1100">
                         <ColumnDefinition Width="50*" />
                     </Grid.ColumnDefinitions>
                     <Label Grid.Row="0" Grid.Column="0" FontSize="14" Content="User : "/>
-                    <Label Name="lblCurrentUser" FontSize="14" Grid.Row="0" Grid.Column="1"/>
+                    <Label Name="lblCurrentUser" FontSize="11" Grid.Row="0" Grid.Column="1" Foreground="Orange"  FontWeight="Bold"/>
                     <Label Grid.Row="1" Grid.Column="0" Content="Version : "></Label>
-                    <Label Grid.Row="1" Grid.Column="1" Name="lblVersion" Content="3.0"></Label>
+                    <Label Grid.Row="1" Grid.Column="1" Name="lblVersion" Content="1.0"></Label>
                 </Grid>
             </DockPanel>
         </DockPanel>
