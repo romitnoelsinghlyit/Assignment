@@ -88,7 +88,7 @@ namespace Login
             catch (Exception)
             {
 
-                MessageBox.Show("Problem loading ICU Ward screen");
+                MessageBox.Show("Problem loading Home screen");
             }
         }
 
