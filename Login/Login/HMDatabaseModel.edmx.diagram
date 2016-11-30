@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="fdd9faffa71a41eab24f3d4022f6fdb3" Name="Diagram1">
+        <EntityTypeShape EntityType="HMDatabaseModel.Billing" Width="1.5" PointX="3" PointY="10.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="HMDatabaseModel.Elective" Width="1.5" PointX="3" PointY="14.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="HMDatabaseModel.Emergency" Width="1.5" PointX="3" PointY="18.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HMDatabaseModel.GeneralWard" Width="1.5" PointX="5.25" PointY="16.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="HMDatabaseModel.ICU" Width="1.5" PointX="8.25" PointY="16.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="HMDatabaseModel.OrthopaedicWard" Width="1.5" PointX="5.25" PointY="11.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="HMDatabaseModel.PaediatricWard" Width="1.5" PointX="5.25" PointY="21.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="HMDatabaseModel.Patient" Width="1.5" PointX="0.75" PointY="13.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="HMDatabaseModel.SurgicalWard" Width="1.5" PointX="8.25" PointY="11.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="HMDatabaseModel.User" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="HMDatabaseModel.FK_Billing_Patients" ManuallyRouted="false" />
+        <AssociationConnector Association="HMDatabaseModel.FK_Elective_Patients" ManuallyRouted="false" />
+        <AssociationConnector Association="HMDatabaseModel.FK_GeneralWard_Elective" ManuallyRouted="false" />
+        <AssociationConnector Association="HMDatabaseModel.FK_ICU_Elective" ManuallyRouted="false" />
+        <AssociationConnector Association="HMDatabaseModel.FK_OrthopaedicWard_Elective" ManuallyRouted="false" />
+        <AssociationConnector Association="HMDatabaseModel.FK_PaediatricWard_Elective" ManuallyRouted="false" />
+        <AssociationConnector Association="HMDatabaseModel.FK_SurgicalWard_Elective" ManuallyRouted="false" />
+        <AssociationConnector Association="HMDatabaseModel.FK_Emergency_Patients" ManuallyRouted="false" />
+        <AssociationConnector Association="HMDatabaseModel.FK_GeneralWard_Emergency" ManuallyRouted="false" />
+        <AssociationConnector Association="HMDatabaseModel.FK_ICU_Emergency" ManuallyRouted="false" />
+        <AssociationConnector Association="HMDatabaseModel.FK_OrthopaedicWard_Emergency" ManuallyRouted="false" />
+        <AssociationConnector Association="HMDatabaseModel.FK_PaediatricWard_Emergency" ManuallyRouted="false" />
+        <AssociationConnector Association="HMDatabaseModel.FK_SurgicalWard_Emergency" ManuallyRouted="false" />
+        <AssociationConnector Association="HMDatabaseModel.FK_GeneralWard_Patients" ManuallyRouted="false" />
+        <AssociationConnector Association="HMDatabaseModel.FK_ICU_Patients" ManuallyRouted="false" />
+        <AssociationConnector Association="HMDatabaseModel.FK_OrthopaedicWard_Patients" ManuallyRouted="false" />
+        <AssociationConnector Association="HMDatabaseModel.FK_PaediatricWard_Patients" ManuallyRouted="false" />
+        <AssociationConnector Association="HMDatabaseModel.FK_SurgicalWard_Patients" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

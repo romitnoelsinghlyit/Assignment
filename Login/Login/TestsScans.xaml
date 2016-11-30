@@ -9,43 +9,43 @@
       Title="TestsScans">
 
     <Grid>
-       
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="12*"/>
-                    <RowDefinition Height="11*"/>
-                    <RowDefinition Height="11*"/>
-                    <RowDefinition Height="11*"/>
-                    <RowDefinition Height="11*"/>
-                    <RowDefinition Height="11*"/>
-                    <RowDefinition Height="11*"/>
-                    <RowDefinition Height="11*"/>
-                    <RowDefinition Height="11*"/>
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="50*"/>
-                    <ColumnDefinition Width="50*"/>
-                </Grid.ColumnDefinitions>
-                <Label x:Name="lblTestsScansHeading" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Content="Prescribe Tests/Scans" Margin="5" VerticalAlignment="Top" FontSize="15" HorizontalAlignment="Center" FontWeight="Bold"/>
 
-        <Label x:Name="lblPatientID" Content="Patient ID:" Grid.Row="1" Grid.Column="0"  HorizontalAlignment="Center" Margin="5" VerticalAlignment="Top" Width="100"/>
-                <TextBox x:Name="tbxTestsScansPatientID" Grid.Row="1" Grid.Column="1"  HorizontalAlignment="Left" Height="25"  Margin="5" 
+        <Grid.RowDefinitions>
+            <RowDefinition Height="12*"/>
+            <RowDefinition Height="11*"/>
+            <RowDefinition Height="11*"/>
+            <RowDefinition Height="11*"/>
+            <RowDefinition Height="11*"/>
+            <RowDefinition Height="11*"/>
+            <RowDefinition Height="11*"/>
+            <RowDefinition Height="11*"/>
+            <RowDefinition Height="11*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="50*"/>
+            <ColumnDefinition Width="50*"/>
+        </Grid.ColumnDefinitions>
+        <Label x:Name="lblTestsScansHeading" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Content="Prescribe Tests/Scans" Margin="5" VerticalAlignment="Top" FontSize="15" HorizontalAlignment="Center" FontWeight="Bold"/>
+
+        <Label x:Name="lblPatientNumber" Content="Patient Number:" Grid.Row="1" Grid.Column="0"  HorizontalAlignment="Center" Margin="5" VerticalAlignment="Top" Width="100"/>
+        <TextBox x:Name="tbxTestsScansPatientID" Grid.Row="1" Grid.Column="1"  HorizontalAlignment="Left" Height="25"  Margin="5" 
                  TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
 
         <Label x:Name="lblScans" Content="Scans"  Grid.Row="2" Grid.Column="0"  HorizontalAlignment="Center" Margin="5" VerticalAlignment="Top" FontWeight="Bold" Width="100" />
-                <CheckBox x:Name="chkXRAY" Content="X-RAY"  Grid.Row="3" Grid.Column="0" Margin="5" HorizontalAlignment="Center" VerticalAlignment="Top" Width="100"/>
-                <CheckBox x:Name="chkMRI" Content="MRI"  Grid.Row="3" Grid.Column="1"  HorizontalAlignment="Left" Margin="5" VerticalAlignment="Top" Width="100"/>
-                <CheckBox x:Name="chkCTScan" Content="CT Scan"  Grid.Row="4" Grid.Column="0" Margin="5" HorizontalAlignment="Center" VerticalAlignment="Top" Width="100"/>
-                <CheckBox x:Name="chkUltrasound" Content="Ultrasound"   Grid.Row="4" Grid.Column="1" HorizontalAlignment="Left" Margin="5" VerticalAlignment="Top" Width="100"/>
+        <CheckBox x:Name="chkXRAY" Content="X-RAY"  Grid.Row="3" Grid.Column="0" Margin="25,5,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Checked="chkXRAY_Checked"/>
+        <CheckBox x:Name="chkMRI" Content="MRI"  Grid.Row="3" Grid.Column="1"  HorizontalAlignment="Left" Margin="5" VerticalAlignment="Top" Width="100" Checked="chkMRI_Checked"/>
+        <CheckBox x:Name="chkCTScan" Content="CT Scan"  Grid.Row="4" Grid.Column="0" Margin="5" HorizontalAlignment="Center" VerticalAlignment="Top" Width="100" Checked="chkCTScan_Checked"/>
+        <CheckBox x:Name="chkUltrasound" Content="Ultrasound"   Grid.Row="4" Grid.Column="1" HorizontalAlignment="Left" Margin="5" VerticalAlignment="Top" Width="100" Checked="chkUltrasound_Checked"/>
 
-                <Label x:Name="lblTests" Content="Tests" HorizontalAlignment="Center" Grid.Row="5" Grid.Column="0"  Margin="5" VerticalAlignment="Top" FontWeight="Bold" Width="100"/>
-                <CheckBox x:Name="chkBloodTest" Content="Blood Test"  Grid.Row="6" Grid.Column="0"  HorizontalAlignment="Center" Margin="5" VerticalAlignment="Top" Width="100"/>
-                <CheckBox x:Name="chkSugarTest" Content="Sugar Test"  Grid.Row="6" Grid.Column="1"  HorizontalAlignment="Left" Margin="5" VerticalAlignment="Top" Width="100"/>
-                <CheckBox x:Name="chkAllergyTest" Content="Allergy Test" Grid.Row="7" Grid.Column="0" HorizontalAlignment="Center" Margin="5" VerticalAlignment="Top" Width="100"/>
+        <Label x:Name="lblTests" Content="Tests" HorizontalAlignment="Center" Grid.Row="5" Grid.Column="0"  Margin="5" VerticalAlignment="Top" FontWeight="Bold" Width="100"/>
+        <CheckBox x:Name="chkBloodTest" Content="Blood Test"  Grid.Row="6" Grid.Column="0"  HorizontalAlignment="Center" Margin="5" VerticalAlignment="Top" Width="100" Checked="chkBloodTest_Checked"/>
+        <CheckBox x:Name="chkSugarTest" Content="Sugar Test"  Grid.Row="6" Grid.Column="1"  HorizontalAlignment="Left" Margin="5" VerticalAlignment="Top" Width="100" Checked="chkSugarTest_Checked"/>
+        <CheckBox x:Name="chkAllergyTest" Content="Allergy Test" Grid.Row="7" Grid.Column="0" HorizontalAlignment="Center" Margin="5" VerticalAlignment="Top" Width="100" Checked="chkAllergyTest_Checked"/>
 
-                <Button x:Name="btnTestsScansOK" Content="OK" Grid.Row="8" Grid.Column="1"  HorizontalAlignment="Left" Margin="5" VerticalAlignment="Top" Width="75" FontWeight="Bold"/>
-                <Button x:Name="btnCancel" Content="Cancel"  Grid.Row="8" Grid.Column="0"  HorizontalAlignment="Right" Margin="5" VerticalAlignment="Top" Width="75" FontWeight="Bold"/>
+        <Button x:Name="btnTestsScansOK" Content="OK" Grid.Row="8" Grid.Column="1"  HorizontalAlignment="Left" Margin="5" VerticalAlignment="Top" Width="75" FontWeight="Bold" Click="btnTestsScansOK_Click"/>
+        <Button x:Name="btnCancel" Content="Cancel"  Grid.Row="8" Grid.Column="0"  HorizontalAlignment="Right" Margin="5" VerticalAlignment="Top" Width="75" FontWeight="Bold"/>
 
-       
+
 
 
     </Grid>
