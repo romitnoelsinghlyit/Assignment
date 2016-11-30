@@ -33,7 +33,7 @@
                         <ColumnDefinition Width="20*"/>
                         <ColumnDefinition Width="20*"/>
                     </Grid.ColumnDefinitions>
-                    <Label x:Name="lblPatientNumber" Content="Patient Number" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Right" Margin="3" VerticalAlignment="Top"/>
+                    <Label x:Name="lblPatientID" Content="Patient ID" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Right" Margin="3" VerticalAlignment="Top"/>
                     <TextBox x:Name="tbxBillingPatientID" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Left" Height="25" Margin="3" TextWrapping="Wrap" VerticalAlignment="Top" Width="110"/>
 
                     <Label x:Name="lblDateOfDischarge" Content="Date of Discharge" Grid.Row="0"  Grid.Column="2" HorizontalAlignment="Right" Margin="3" VerticalAlignment="Top"/>

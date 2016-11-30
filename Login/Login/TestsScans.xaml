@@ -27,9 +27,9 @@
         </Grid.ColumnDefinitions>
         <Label x:Name="lblTestsScansHeading" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Content="Prescribe Tests/Scans" Margin="5" VerticalAlignment="Top" FontSize="15" HorizontalAlignment="Center" FontWeight="Bold"/>
 
-        <Label x:Name="lblPatientNumber" Content="Patient Number:" Grid.Row="1" Grid.Column="0"  HorizontalAlignment="Center" Margin="5" VerticalAlignment="Top" Width="100"/>
+        <Label x:Name="lblPatientID" Content="Patient ID:" Grid.Row="1" Grid.Column="0"  HorizontalAlignment="Center" Margin="5" VerticalAlignment="Top" Width="100"/>
         <TextBox x:Name="tbxTestsScansPatientID" Grid.Row="1" Grid.Column="1"  HorizontalAlignment="Left" Height="25"  Margin="5" 
-                 TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+                 TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="tbxTestsScansPatientID_TextChanged"/>
 
         <Label x:Name="lblScans" Content="Scans"  Grid.Row="2" Grid.Column="0"  HorizontalAlignment="Center" Margin="5" VerticalAlignment="Top" FontWeight="Bold" Width="100" />
         <CheckBox x:Name="chkXRAY" Content="X-RAY"  Grid.Row="3" Grid.Column="0" Margin="25,5,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100"/>

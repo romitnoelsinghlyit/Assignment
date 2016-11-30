@@ -28,7 +28,14 @@ namespace Login
         {
             InitializeComponent();
         }
-               private void btnTestsScansOK_Click(object sender, RoutedEventArgs e)
+
+
+        private void tbxTestsScansPatientID_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            billing.PatientID = tbxTestsScansPatientID.Text.ToString();
+        }
+
+        private void btnTestsScansOK_Click(object sender, RoutedEventArgs e)
         {
             foreach (var patientRecord in dbEntities.Billings.Where(t => t.PatientID == billing.PatientID))
             {
@@ -84,5 +91,7 @@ namespace Login
                 MessageBox.Show("Problem loading ICU Ward screen");
             }
         }
+
+       
     }
 }
