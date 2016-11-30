@@ -66,9 +66,6 @@ namespace Login
             patient.PatientNumber = Convert.ToInt16(tbxPatientNumber.Text);
 
             patient.PatientID = Guid.NewGuid().ToString();
-            //dbEntities.Configuration.AutoDetectChangesEnabled = false;
-            //dbEntities.Configuration.ValidateOnSaveEnabled = false;
-            //dbEntities.Entry(patient).State = System.Data.Entity.EntityState.Added;
         }
 
 
@@ -104,6 +101,35 @@ namespace Login
                 currentPatient.PatientNumber = Convert.ToInt16(tbxPatientNumber.Text);
                 currentPatient.Category = patientCategory;
                 currentPatient.AdmissionType = patientAdmissionType;
+
+                //////////////// EMERGENCY/ELECTIVE LIST  ///////////////////////////////////////////////////
+
+                if (patientAdmissionType == "Elective")
+                {
+                    currentElective.ElectiveRecordID =  "ELEC" + currentPatient.PatientID;
+                    currentElective.PatientID = currentPatient.PatientID;
+                    currentElective.PatientNumber = currentPatient.PatientNumber;
+                    currentElective.Forename = currentPatient.Forename;
+                    currentElective.Surname = currentPatient.Surname;
+                    currentElective.ArrivalDate = currentPatient.ArrivalDate;
+                    currentElective.DateOfBirth = currentPatient.DateOfBirth;
+                }
+
+
+                if (patientAdmissionType == "Emergency")
+                {
+                    currentEmergency.EmergencyRecordID = "ELEC" + currentPatient.PatientID;
+                    currentEmergency.PatientID = currentPatient.PatientID;
+                    currentEmergency.PatientNumber = currentPatient.PatientNumber;
+                    currentEmergency.Forename = currentPatient.Forename;
+                    currentEmergency.Surname = currentPatient.Surname;
+                    currentEmergency.ArrivalDate = currentPatient.ArrivalDate;
+                    currentEmergency.DateOfBirth = currentPatient.DateOfBirth;
+                }
+
+            //////////////////////////////////////////////////////////////////////////////////////////////////
+
+
                 bool patientVerified = mtdVerifyPatientDetails(currentPatient);
                 if (patientVerified)
                 {

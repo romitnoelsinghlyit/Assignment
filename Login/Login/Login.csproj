@@ -81,9 +81,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Billing.cs">
-      <DependentUpon>HMDatabaseModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="Billing.xaml.cs">
       <DependentUpon>Billing.xaml</DependentUpon>
     </Compile>
@@ -93,74 +90,32 @@
     <Compile Include="Dashboard.xaml.cs">
       <DependentUpon>Dashboard.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Elective.cs">
-      <DependentUpon>HMDatabaseModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="ElectiveAdmissons.xaml.cs">
       <DependentUpon>ElectiveAdmissons.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Emergency.cs">
-      <DependentUpon>HMDatabaseModel.tt</DependentUpon>
     </Compile>
     <Compile Include="EmergencyAdmissons.xaml.cs">
       <DependentUpon>EmergencyAdmissons.xaml</DependentUpon>
     </Compile>
-    <Compile Include="GeneralWard.cs">
-      <DependentUpon>HMDatabaseModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="GeneralWard.xaml.cs">
       <DependentUpon>GeneralWard.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="HMDatabaseModel.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>HMDatabaseModel.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="HMDatabaseModel.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>HMDatabaseModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="HMDatabaseModel.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>HMDatabaseModel.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="ICU.cs">
-      <DependentUpon>HMDatabaseModel.tt</DependentUpon>
     </Compile>
     <Compile Include="ICU.xaml.cs">
       <DependentUpon>ICU.xaml</DependentUpon>
     </Compile>
-    <Compile Include="OrthopaedicWard.cs">
-      <DependentUpon>HMDatabaseModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="OrthopaedicWard.xaml.cs">
       <DependentUpon>OrthopaedicWard.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="PaediatricWard.cs">
-      <DependentUpon>HMDatabaseModel.tt</DependentUpon>
     </Compile>
     <Compile Include="PaediatricWard.xaml.cs">
       <DependentUpon>PaediatricWard.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Patient.cs">
-      <DependentUpon>HMDatabaseModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="PatientsPage.xaml.cs">
       <DependentUpon>PatientsPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="SurgicalWard.cs">
-      <DependentUpon>HMDatabaseModel.tt</DependentUpon>
     </Compile>
     <Compile Include="SurgicalWard.xaml.cs">
       <DependentUpon>SurgicalWard.xaml</DependentUpon>
     </Compile>
     <Compile Include="TestsScans.xaml.cs">
       <DependentUpon>TestsScans.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="User.cs">
-      <DependentUpon>HMDatabaseModel.tt</DependentUpon>
     </Compile>
     <Compile Include="UserAdministration.xaml.cs">
       <DependentUpon>UserAdministration.xaml</DependentUpon>
@@ -248,13 +203,6 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EntityDeploy Include="HMDatabaseModel.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>HMDatabaseModel.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <None Include="HMDatabaseModel.edmx.diagram">
-      <DependentUpon>HMDatabaseModel.edmx</DependentUpon>
-    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -279,25 +227,6 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="HMDatabase.mdf">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="HMDatabaseModel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>HMDatabaseModel.edmx</DependentUpon>
-      <LastGenOutput>HMDatabaseModel.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="HMDatabaseModel.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>HMDatabaseModel.edmx</DependentUpon>
-      <LastGenOutput>HMDatabaseModel.cs</LastGenOutput>
-    </Content>
-    <Content Include="HMDatabase_log.ldf">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <DependentUpon>HMDatabase.mdf</DependentUpon>
-    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

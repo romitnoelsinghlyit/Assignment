@@ -20,15 +20,30 @@ namespace Login
     /// </summary>
     public partial class ElectiveAdmissons : Page
     {
+        HMDatabaseEntities dbEntities = new HMDatabaseEntities();
+        List<Elective> electiveList = new List<Elective>();
         Dashboard dashboard = new Dashboard();
+        Elective elective = new Elective();
+
         public ElectiveAdmissons()
         {
             InitializeComponent();
+            lstElectivePatients.ItemsSource = electiveList;
         }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            foreach (var electivePatient in dbEntities.Electives)
+            {
+                electiveList.Add(electivePatient);
+            }
+        }
+
+
 
         private void lstElectivePatients_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
+           
         }
 
         private void btnExit_Click(object sender, RoutedEventArgs e)
