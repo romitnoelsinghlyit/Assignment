@@ -28,73 +28,53 @@ namespace Login
         {
             InitializeComponent();
         }
-
-        private void chkXRAY_Checked(object sender, RoutedEventArgs e)
+               private void btnTestsScansOK_Click(object sender, RoutedEventArgs e)
         {
             foreach (var patientRecord in dbEntities.Billings.Where(t => t.PatientID == billing.PatientID))
             {
-                patientRecord.XRAY = 30;                
+                if (chkXRAY.IsChecked==true)
+                {
+                    patientRecord.XRAY = 30;
+                }
+     
+                if (chkMRI.IsChecked==true)
+                {
+                    patientRecord.MRI = 40;
+                }
+
+                if (chkCTScan.IsChecked==true)
+                {
+                    patientRecord.CTScan = 40;
+                }
+
+                if (chkUltrasound.IsChecked==true)
+                {
+                    patientRecord.Ultrasound = 30;
+                }
+
+                if (chkBloodTest.IsChecked==true)
+                {
+                    patientRecord.BloodTest = 10;
+                }
+
+                if (chkSugarTest.IsChecked==true)
+                {
+                    patientRecord.SugarTest = 10;
+                }
+
+                if (chkAllergyTest.IsChecked==true)
+                {
+                    patientRecord.AllergyTest = 30;
+                }
+
             }
+
         }
 
-        private void chkMRI_Checked(object sender, RoutedEventArgs e)
-        {
-
-            foreach (var patientRecord in dbEntities.Billings.Where(t => t.PatientID == billing.PatientID))
-            {
-                patientRecord.MRI = 40;
-            }
-        }
-
-        private void chkCTScan_Checked(object sender, RoutedEventArgs e)
-        {
-
-            foreach (var patientRecord in dbEntities.Billings.Where(t => t.PatientID == billing.PatientID))
-            {
-                patientRecord.CTScan = 40;
-            }
-        }
-
-        private void chkUltrasound_Checked(object sender, RoutedEventArgs e)
-        {
-
-            foreach (var patientRecord in dbEntities.Billings.Where(t => t.PatientID == billing.PatientID))
-            {
-                patientRecord.Ultrasound = 30;
-            }
-        }
-
-        private void chkBloodTest_Checked(object sender, RoutedEventArgs e)
-        {
-
-            foreach (var patientRecord in dbEntities.Billings.Where(t => t.PatientID == billing.PatientID))
-            {
-                patientRecord.BloodTest = 10;
-            }
-        }
-
-        private void chkSugarTest_Checked(object sender, RoutedEventArgs e)
-        {
-
-            foreach (var patientRecord in dbEntities.Billings.Where(t => t.PatientID == billing.PatientID))
-            {
-                patientRecord.SugarTest = 10;
-            }
-        }
-
-        private void chkAllergyTest_Checked(object sender, RoutedEventArgs e)
-        {
-
-            foreach (var patientRecord in dbEntities.Billings.Where(t => t.PatientID == billing.PatientID))
-            {
-                patientRecord.AllergyTest = 30;
-            }
-        }
-
-        private void btnTestsScansOK_Click(object sender, RoutedEventArgs e)
+        private void btnCancel_Click(object sender, RoutedEventArgs e)
         {
             try
-            {
+            {               
                 var blankScreen = new BlankScreen();
                 dashboard.frmeMainFrame.Navigate(blankScreen);
             }
@@ -103,7 +83,6 @@ namespace Login
 
                 MessageBox.Show("Problem loading ICU Ward screen");
             }
-
         }
     }
 }
